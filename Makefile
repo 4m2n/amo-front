@@ -1,3 +1,5 @@
+# Albin Kerouanton
+# https://github.com/akerouanton
 STAGE ?= dev
 
 .ensure-stage-exists:

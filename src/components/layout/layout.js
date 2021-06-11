@@ -3,7 +3,7 @@ import "./layout.scss"
 
 // Layout :: () =>  React.Component
 export default ({
-  children
+  children,
 }) =>
   <main>
     <h6>AMO</h6>
