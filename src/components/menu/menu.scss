@@ -21,6 +21,29 @@ header {
     }
   }
 
+  .menu-burger {
+    @include animate-default;
+
+    display: none;
+    margin-top: -3px;
+    cursor: pointer;
+    opacity: 1;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    .bar {
+      width: 25px;
+      height: 2px;
+      background-color: $color-dark-blue;
+
+      &:nth-child(2) {
+        margin: 0.45rem 0;
+      }
+    }
+  }
+
   nav {
     text-transform: uppercase;
     font-size: $size-5;
@@ -45,6 +68,28 @@ header {
             width: 100%;
           }
         }
+      }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .menu-burger {
+      display: initial;
+    }
+
+    nav {
+      overflow: hidden;
+
+      &.closed {
+        height: 0;
+      }
+
+      &.opened {
+        height: 100%;
+      }
+
+      ul {
+        flex-direction: column;
       }
     }
   }
