@@ -1,15 +1,19 @@
 @import "./../../styles/variables.scss";
 
 footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-shrink: 0; // see https://css-tricks.com/couple-takes-sticky-footer/
   color: $color-grey;
-  border: 1px red dotted;
   padding: $size-6;
   font-size: .9rem;
 
   p {
     text-align: center;
+
     &:first-child {
+      padding-top: $size-3;
       border-top: 1px $color-grey solid;
     }
 
