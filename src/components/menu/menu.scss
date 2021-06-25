@@ -1,0 +1,107 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/mixins.scss";
+
+header {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: $size-6;
+  box-shadow: 0px 2px 5px rgba(0,0,0, 0.3);
+
+  .menu-burger {
+    @include animate-fade-link();
+
+    cursor: pointer;
+    margin-top: -3px;
+
+    .bar {
+      width: 25px;
+      height: 2px;
+      background-color: $color-dark-blue;
+
+      &:nth-child(2) {
+        margin: 0.45rem 0;
+      }
+    }
+  }
+
+  p.logo-amo {
+    @include animate-fade-link();
+
+    font-weight: $font-black;
+    font-size: $size-3;
+  }
+
+  nav {
+    text-transform: uppercase;
+    font-size: $size-5;
+    font-weight: $font-light;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      li {
+        margin-left: $size-4;
+
+        .separator {
+          @include animate-default;
+
+          border-bottom: 1px $color-dark-blue solid;
+          width: 0%;
+        }
+
+        &:hover {
+          .separator {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  header {
+    justify-content: initial;
+
+    .menu-burger {
+      margin-right: $size-6;
+    }
+
+    nav {
+      flex: 1 100%;
+      overflow: hidden;
+      font-size: $size-6;
+
+      &.closed {
+        height: 0;
+      }
+
+      &.opened {
+        height: 100%;
+        margin-top: $size-6;
+      }
+
+      ul {
+        align-items: flex-start;
+        justify-content: space-between;
+
+        li {
+          margin: 0;
+        }
+      }
+    }
+
+    .contact {
+      flex-grow: 2;
+    }
+  }
+}

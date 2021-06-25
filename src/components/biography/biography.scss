@@ -1,0 +1,31 @@
+@import "./../../styles/variables.scss";
+
+section.biography {
+  margin: $size-1 auto;
+
+  h1 {
+    font-size: $size-5;
+    font-weight: $font-bold;
+    margin-bottom: $size-4;
+  }
+
+  article {
+    p {
+      text-align: justify;
+      line-height: 1.5;
+      margin-bottom: $size-4;
+      font-weight: $font-light;
+    }
+
+    &.is-collapsed {
+      p:not(:first-child) {
+        display: none;
+      }
+    }
+  }
+
+  button.expand-bio {
+    color: $color-orange;
+    cursor: pointer;
+  }
+}

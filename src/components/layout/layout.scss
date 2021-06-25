@@ -1,13 +1,61 @@
 @import "bulma/sass/base/minireset.sass";
+@import "bulma/sass/helpers/visibility.sass";
 @import "./../../styles/fonts.scss";
+@import "./../../styles/variables.scss";
+@import "./../../styles/mixins.scss";
+
+button {
+  background: none;
+  outline: 0;
+  border: none;
+  padding: 0;
+  font-size: $size-6;
+}
+
+.btn-teal {
+  @include animate-fade-link();
+
+  display: inline-block;
+  background-color: $color-turquoise;
+  color: white;
+  font-weight: $font-bold;
+  padding: $size-7;
+  margin-top: $size-5;
+}
+
+* {
+  font-family: "ClarityCity";
+  color: $color-dark-blue;
+}
+
+.im {
+  font-family: "icomoon";
+}
+
+.container {
+  max-width: 1024px;
+  margin: auto;
+  padding: 0 $size-6;
+}
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper,
+main {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
 
 main {
-  color: red;
+  display: flex;
+  flex-direction: column;
 
-  p {
-    color: green;
-    font-family: "ClarityCity";
-    font-weight: 900;
-    font-size: 4rem;
+  .content {
+    flex: 1 0 auto;
+    padding-top: $header-height;
   }
 }

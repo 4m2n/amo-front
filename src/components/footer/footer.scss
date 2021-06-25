@@ -1,0 +1,24 @@
+@import "./../../styles/variables.scss";
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0; // see https://css-tricks.com/couple-takes-sticky-footer/
+  padding: $size-6;
+  font-size: $font-small;
+
+  p {
+    color: $color-grey;
+    text-align: center;
+
+    &:first-child {
+      padding-top: $size-3;
+      border-top: 1px $color-grey solid;
+    }
+
+    &:last-child {
+      margin-top: $size-7;
+    }
+  }
+}
