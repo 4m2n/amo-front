@@ -6,7 +6,7 @@ import "./index.scss"
 const Index = () =>
   <Layout>
     <section>
-      todo
+      index
     </section>
   </Layout>
 

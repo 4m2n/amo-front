@@ -1,8 +1,10 @@
 @import "bulma/sass/base/minireset.sass";
 @import "./../../styles/fonts.scss";
+@import "./../../styles/variables.scss";
 
 * {
   font-family: "ClarityCity";
+  color: $color-dark-blue;
 }
 
 html,
