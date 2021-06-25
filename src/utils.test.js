@@ -1,9 +1,18 @@
 import * as utils from "./utils"
+import { pipe } from "ramda"
+
+beforeEach(() => {
+  const DATE_TO_USE = new Date("1990")
+  global.Date = jest.fn(() => DATE_TO_USE)
+})
 
 describe("utils", () =>  {
-  // test function
-  it("can test a function", () => {
-    expect(utils.fn(1)).toBe(2)
-  })
+  it("determines the current year", () => pipe(
+    result => expect(result).toBe(1990),
+  )(utils.getCurrentYear()))
+
+  it("ends a test pipe", () => pipe(
+    result => expect(result).toBeUndefined(),
+  )(utils.done()))
 })
 

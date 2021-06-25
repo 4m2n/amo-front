@@ -1,0 +1,39 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/mixins.scss";
+
+section.homepage {
+  figure {
+    position: relative;
+
+    .contact {
+      position: absolute;
+      right: $size-4;
+      bottom: $size-4;
+
+      a {
+        @include animate-fade-link();
+
+        color: white;
+        font-size: $size-6;
+      }
+
+      .social-networks {
+        margin-top: $size-4;
+
+        a {
+          font-size: $size-5;
+          float: right;
+          margin-left: $size-6;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  section.homepage {
+    .contact > a {
+      display: none;
+    }
+  }
+}
