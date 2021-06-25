@@ -7,5 +7,8 @@ export default ({
 }) =>
   <main>
     <h6>AMO</h6>
+    <p>
+      test clarity city
+    </p>
     {children}
   </main>

@@ -1,5 +1,13 @@
 @import "bulma/sass/base/minireset.sass";
+@import "./../../styles/fonts.scss";
 
 main {
   color: red;
+
+  p {
+    color: green;
+    font-family: "ClarityCity";
+    font-weight: 900;
+    font-size: 4rem;
+  }
 }
