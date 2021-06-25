@@ -1,2 +1,2 @@
-// fn :: Number -> Number
-export const fn = x => x + 1
+// getCurrentYear :: () -> Number
+export const getCurrentYear = () => (new Date()).getFullYear()

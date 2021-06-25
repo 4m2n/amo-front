@@ -1,4 +1,6 @@
 import React from "react"
+import Menu from "./../menu/menu"
+import Footer from "./../footer/footer"
 import "./layout.scss"
 
 // Layout :: () =>  React.Component
@@ -6,9 +8,9 @@ export default ({
   children,
 }) =>
   <main>
-    <h6>AMO</h6>
-    <p>
-      test clarity city
-    </p>
-    {children}
+    <Menu />
+    <div className="content">
+      {children}
+    </div>
+    <Footer />
   </main>

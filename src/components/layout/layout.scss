@@ -1,13 +1,26 @@
 @import "bulma/sass/base/minireset.sass";
 @import "./../../styles/fonts.scss";
 
-main {
-  color: red;
+* {
+  font-family: "ClarityCity";
+}
 
-  p {
-    color: green;
-    font-family: "ClarityCity";
-    font-weight: 900;
-    font-size: 4rem;
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    flex: 1 0 auto;
   }
 }
