@@ -10,24 +10,12 @@ header {
   padding: $size-6;
   box-shadow: 0px 2px 5px rgba(0,0,0, 0.3);
 
-  p.logo-amo {
-    @include animate-default;
-
-    font-weight: 900;
-    font-size: $size-3;
-    opacity: 1;
-
-    &:hover {
-      opacity: .7;
-    }
-  }
-
   .menu-burger {
     @include animate-default;
 
+    cursor: pointer;
     display: none;
     margin-top: -3px;
-    cursor: pointer;
     opacity: 1;
 
     &:hover {
@@ -42,6 +30,18 @@ header {
       &:nth-child(2) {
         margin: 0.45rem 0;
       }
+    }
+  }
+
+  p.logo-amo {
+    @include animate-default;
+
+    font-weight: 900;
+    font-size: $size-3;
+    opacity: 1;
+
+    &:hover {
+      opacity: .7;
     }
   }
 
@@ -73,9 +73,18 @@ header {
     }
   }
 
-  @media (max-width: $tablet) {
+  .contact {
+    display: none;
+  }
+}
+
+@media (max-width: $tablet) {
+  header {
+    justify-content: initial;
+
     .menu-burger {
       display: initial;
+      margin-right: $size-6;
     }
 
     nav {
@@ -88,19 +97,22 @@ header {
 
       &.opened {
         height: 100%;
+        margin-top: $size-6;
       }
 
       ul {
-        flex-direction: column;
         align-items: flex-start;
+        justify-content: space-between;
+
         li {
           margin: 0;
-
-          &:not(:last-child) {
-            padding-bottom: $size-7;
-          }
         }
       }
+    }
+
+    .contact {
+      flex-grow: 2;
+      display: initial;
     }
   }
 }

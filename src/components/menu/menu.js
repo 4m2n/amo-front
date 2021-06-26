@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
+import Contact from "./../contact/contact"
 import "./menu.scss"
 
 // Menu :: Props -> React.Component
@@ -8,10 +9,6 @@ export default () => {
 
   return (
     <header>
-      <p className="logo-amo">
-        <Link to="/">AMO</Link>
-      </p>
-
       <div
         className="menu-burger"
         onClick={() => opened ? setOpened(false) : setOpened(true)}
@@ -20,6 +17,12 @@ export default () => {
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
+
+      <p className="logo-amo">
+        <Link to="/">AMO</Link>
+      </p>
+
+      <Contact showSocialNetworks={false} />
 
       <nav className={opened ? "opened" : "closed"}>
         <ul>
