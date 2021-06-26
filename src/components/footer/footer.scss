@@ -5,11 +5,11 @@ footer {
   flex-direction: column;
   align-items: center;
   flex-shrink: 0; // see https://css-tricks.com/couple-takes-sticky-footer/
-  color: $color-grey;
   padding: $size-6;
   font-size: .9rem;
 
   p {
+    color: $color-grey;
     text-align: center;
 
     &:first-child {
