@@ -12,6 +12,12 @@
   font-family: "icomoon";
 }
 
+.container {
+  max-width: 1024px;
+  margin: auto;
+  padding: 0 $size-6;
+}
+
 html,
 body,
 #___gatsby,

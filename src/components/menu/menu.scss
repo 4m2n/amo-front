@@ -3,6 +3,9 @@
 
 header {
   z-index: 1;
+  position: fixed;
+  width: 100%;
+  background-color: white;
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
