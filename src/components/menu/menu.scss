@@ -39,7 +39,7 @@ header {
   p.logo-amo {
     @include animate-default;
 
-    font-weight: 900;
+    font-weight: $font-black;
     font-size: $size-3;
     opacity: 1;
 
@@ -51,6 +51,7 @@ header {
   nav {
     text-transform: uppercase;
     font-size: $size-5;
+    font-weight: $font-light;
 
     ul {
       display: flex;

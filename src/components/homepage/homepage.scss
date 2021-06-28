@@ -33,4 +33,45 @@ section.homepage {
       }
     }
   }
+
+  .extended-play {
+    background-color: $color-pink;
+    padding: $size-1 0;
+    margin-bottom: $size-1;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+
+      figure img {
+        max-height: 350px;
+        filter: drop-shadow(7px 7px 5px #b18b7d)
+      }
+
+      aside {
+        text-align: right;
+
+        h1 {
+          font-size: $size-4;
+          font-weight: $font-light;
+        }
+
+        h2 {
+          margin-top: $size-7;
+          margin-bottom: $size-4;
+          font-size: $size-3;
+          font-weight: $font-bold;
+        }
+
+        p {
+          line-height: 1.5;
+          font-weight: $font-light;
+
+          &:last-child {
+            margin-top: $size-4;
+          }
+        }
+      }
+    }
+  }
 }
