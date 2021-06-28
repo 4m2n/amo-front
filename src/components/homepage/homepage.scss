@@ -75,3 +75,41 @@ section.homepage {
     }
   }
 }
+
+@media (max-width: $tablet) {
+  section.homepage {
+    .contact > a {
+      display: none;
+    }
+
+    .extended-play {
+      figure {
+        margin-top: $size-2;
+      }
+
+      .container {
+        flex-direction: column-reverse;
+
+        aside {
+          text-align: left;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-between;
+
+          h1, h2 {
+            font-size: $size-4;
+            display: inline-block;
+          }
+
+          h2 {
+            margin-top: 0;
+          }
+
+          p {
+            flex: 1 100%;
+          }
+        }
+      }
+    }
+  }
+}

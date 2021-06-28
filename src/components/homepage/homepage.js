@@ -11,10 +11,7 @@ const Homepage = () =>
     <figure>
       <img src={bkg} alt="mout" />
       <figcaption>
-        <Contact
-          showSocialNetworks={true}
-          className="is-hidden-mobile"
-        />
+        <Contact showSocialNetworks={true} />
       </figcaption>
     </figure>
 
@@ -27,10 +24,10 @@ const Homepage = () =>
         </figure>
         <aside>
           <h1>Nouvel EP</h1>
-          <h2>« MÉANDRES »</h2>
+          <h2>MÉANDRES</h2>
           <p>
             5 titres<br/>
-            23'
+            17'
           </p>
           <p>
             Disponible en CD
