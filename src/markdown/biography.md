@@ -1,4 +1,7 @@
-# Bonjour, moi c’est Amaury !
+---
+id: biography
+title: Bonjour, moi c’est Amaury !
+---
 
 AMO est le projet musical dans lequel je joue de la guitare et je chante mes
 compositions. Mes inspirations vont de Chris Stapleton à Neil Young, en passant
@@ -9,7 +12,7 @@ décidé de chanter en français.
 J’ai commencé la guitare à 14 ans, en jouant du rock avec mon frère à la
 batterie. Ensemble nous avons monté des groupes et fait des concerts en
 parallèle de nos études. A l’époque c’était gros amplis, grosse batterie et gros
-son ! En 2010 j’ai intégré le Big Band Universitaire de Nantes à la guitare,
+son ! En 2010 j’ai intégré le **Big Band Universitaire de Nantes** à la guitare,
 tous ces accords bizarres étaient bien nouveaux pour le jeune rockeur que
 j’étais ! J’ai beaucoup appris avec eux.
 
@@ -37,4 +40,4 @@ carrière artistique.
 
 Début 2021 je précise mon projet artistique. Après des essais en anglais, je
 décide d’écrire en français, car c’est le ton juste pour moi. Les titres
-s’enchaînent, c’est la naissance d’AMO et du premier EP : “Méandres”.
+s’enchaînent, c’est la **naissance d’AMO et du premier EP : Méandres**.

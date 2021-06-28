@@ -5,7 +5,7 @@ import bkg from "./../../assets/images/AMO_bkg.jpg"
 import "./homepage.scss"
 
 // Homepage :: () -> React.Component
-export default () =>
+const Homepage = () =>
   <section className="homepage">
     <figure>
       <img src={bkg} alt="mout" />
@@ -16,6 +16,7 @@ export default () =>
         />
       </figcaption>
     </figure>
-
     <Biography />
   </section>
+
+export default Homepage
