@@ -1,0 +1,34 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/mixins.scss";
+
+section.homepage {
+  position: relative;
+
+  .contact {
+    position: absolute;
+    right: $size-4;
+    bottom: $size-4;
+
+    a {
+      @include animate-default();
+
+      color: white;
+      font-size: $size-6;
+      opacity: 1;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    .social-networks {
+      margin-top: $size-4;
+
+      a {
+        font-size: $size-5;
+        float: right;
+        margin-left: $size-6;
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ export default () => {
   return (
     <header>
       <div
-        className="menu-burger"
+        className="menu-burger is-hidden-tablet"
         onClick={() => opened ? setOpened(false) : setOpened(true)}
       >
         <div className="bar"></div>
@@ -22,7 +22,10 @@ export default () => {
         <Link to="/">AMO</Link>
       </p>
 
-      <Contact showSocialNetworks={false} />
+      <Contact
+        showSocialNetworks={false}
+        className="is-hidden-tablet"
+      />
 
       <nav className={opened ? "opened" : "closed"}>
         <ul>

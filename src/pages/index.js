@@ -1,13 +1,11 @@
 import React from "react"
 import Layout from "./../components/layout/layout"
-import "./index.scss"
+import Homepage from "./../components/homepage/homepage"
 
 // Index :: () -> React.Component
 const Index = () =>
   <Layout>
-    <section>
-      index
-    </section>
+    <Homepage />
   </Layout>
 
 export default Index
