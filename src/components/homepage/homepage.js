@@ -32,6 +32,10 @@ const Homepage = () =>
           <p>
             Disponible en CD
           </p>
+
+          <a href="mailto:contact@amo-musique.fr">
+            J'en veux un !
+          </a>
         </aside>
       </div>
     </div>

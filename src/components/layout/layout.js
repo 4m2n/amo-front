@@ -3,8 +3,8 @@ import Menu from "./../menu/menu"
 import Footer from "./../footer/footer"
 import "./layout.scss"
 
-// Layout :: () =>  React.Component
-export default ({
+// Layout :: () ->  React.Component
+const Layout = ({
   children,
 }) =>
   <main>
@@ -14,3 +14,5 @@ export default ({
     </div>
     <Footer />
   </main>
+
+export default Layout

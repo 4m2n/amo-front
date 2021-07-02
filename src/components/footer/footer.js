@@ -3,7 +3,7 @@ import { getCurrentYear } from "./../../utils"
 import "./footer.scss"
 
 // Footer :: Props -> React.Component
-export default () =>
+const Footer = () =>
   <footer>
     <p>
     © {getCurrentYear()} Amaury Langlois / Photographies © Mathieu Lagraula
@@ -15,3 +15,5 @@ export default () =>
       </a>
     </p>
   </footer>
+
+export default Footer

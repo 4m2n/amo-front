@@ -4,19 +4,19 @@ import Contact from "./../contact/contact"
 import "./menu.scss"
 
 // Menu :: Props -> React.Component
-export default () => {
+const Menu = () => {
   const [opened, setOpened] = useState(false);
 
   return (
     <header>
-      <div
+      <button
         className="menu-burger is-hidden-tablet"
         onClick={() => opened ? setOpened(false) : setOpened(true)}
       >
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
-      </div>
+      </button>
 
       <p className="logo-amo">
         <Link to="/">AMO</Link>
@@ -50,3 +50,5 @@ export default () => {
     </header>
   );
 }
+
+export default Menu

@@ -3,6 +3,14 @@
 @import "./../../styles/fonts.scss";
 @import "./../../styles/variables.scss";
 
+button {
+  background: none;
+  outline: 0;
+  border: none;
+  padding: 0;
+  font-size: $size-6;
+}
+
 * {
   font-family: "ClarityCity";
   color: $color-dark-blue;

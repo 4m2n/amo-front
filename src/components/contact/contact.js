@@ -2,7 +2,7 @@ import React from "react"
 import "./contact.scss"
 
 // Contact :: Props -> React.Component
-export default ({
+const Footer = ({
   showSocialNetworks = true,
   className = "",
 }) =>
@@ -39,3 +39,5 @@ export default ({
       </div>
     }
   </div>
+
+export default Footer

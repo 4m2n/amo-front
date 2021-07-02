@@ -27,12 +27,12 @@ export default function Biography() {
         {parse(data.markdownRemark.htmlAst)}
       </article>
 
-      <p
+      <button
         className="expand-bio"
         onClick={() => bioIsVisible ? setBioIsVisible(false) : setBioIsVisible(true)}
       >
         > {bioIsVisible ? "Refermer" : "Lire la bio complète"}
-      </p>
+      </button>
     </section>
   )
 }
