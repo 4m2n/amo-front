@@ -5,6 +5,13 @@ import bkg from "./../../assets/images/AMO_bkg.jpg"
 import meandres from "./../../assets/images/meandres.png"
 import "./homepage.scss"
 
+// getMailto :: () -> String
+const getMailto = () => [
+  "mailto:contact@amo-musique.fr",
+  "?subject=Commande EP méandres",
+  "&body=Bonjour, je souhaiterais commander votre EP « Méandres »."
+].join('')
+
 // Homepage :: () -> React.Component
 const Homepage = () =>
   <section className="homepage">
@@ -33,8 +40,11 @@ const Homepage = () =>
             Disponible en CD
           </p>
 
-          <a href="mailto:contact@amo-musique.fr">
-            J'en veux un !
+          <a
+            className="order-button"
+            href={getMailto()}
+          >
+            Commander (5€)
           </a>
         </aside>
       </div>

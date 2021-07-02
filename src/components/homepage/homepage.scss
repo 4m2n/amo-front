@@ -69,6 +69,23 @@ section.homepage {
 
           &:last-child {
             margin-top: $size-4;
+            margin-bottom: $size-4;
+          }
+        }
+
+        a.order-button {
+          @include animate-default();
+
+          display: inline-block;
+          background-color: $color-turquoise;
+          color: white;
+          font-weight: $font-bold;
+          padding: $size-7;
+          margin-top: $size-5;
+          opacity: 1;
+
+          &:hover {
+            opacity: .7;
           }
         }
       }
@@ -107,6 +124,14 @@ section.homepage {
 
           p {
             flex: 1 100%;
+
+            &:last-of-type {
+              flex: 1 50%;
+            }
+          }
+
+          a.order-button {
+            margin: -10px;
           }
         }
       }
