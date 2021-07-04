@@ -15,15 +15,10 @@ header {
   box-shadow: 0px 2px 5px rgba(0,0,0, 0.3);
 
   .menu-burger {
-    @include animate-default;
+    @include animate-fade-link();
 
     cursor: pointer;
     margin-top: -3px;
-    opacity: 1;
-
-    &:hover {
-      opacity: .7;
-    }
 
     .bar {
       width: 25px;
@@ -37,15 +32,10 @@ header {
   }
 
   p.logo-amo {
-    @include animate-default;
+    @include animate-fade-link();
 
     font-weight: $font-black;
     font-size: $size-3;
-    opacity: 1;
-
-    &:hover {
-      opacity: .7;
-    }
   }
 
   nav {

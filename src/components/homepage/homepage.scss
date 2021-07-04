@@ -11,15 +11,10 @@ section.homepage {
       bottom: $size-4;
 
       a {
-        @include animate-default();
+        @include animate-fade-link();
 
         color: white;
         font-size: $size-6;
-        opacity: 1;
-
-        &:hover {
-          opacity: .7;
-        }
       }
 
       .social-networks {
@@ -74,7 +69,7 @@ section.homepage {
         }
 
         a.order-button {
-          @include animate-default();
+          @include animate-fade-link();
 
           display: inline-block;
           background-color: $color-turquoise;
@@ -82,11 +77,6 @@ section.homepage {
           font-weight: $font-bold;
           padding: $size-7;
           margin-top: $size-5;
-          opacity: 1;
-
-          &:hover {
-            opacity: .7;
-          }
         }
       }
     }
