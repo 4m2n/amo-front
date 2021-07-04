@@ -6,7 +6,7 @@ footer {
   align-items: center;
   flex-shrink: 0; // see https://css-tricks.com/couple-takes-sticky-footer/
   padding: $size-6;
-  font-size: .9rem;
+  font-size: $font-small;
 
   p {
     color: $color-grey;

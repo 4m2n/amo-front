@@ -1,6 +1,6 @@
 import React from "react"
 import Contact from "./../contact/contact"
-import Biography from "./../biography/biography"
+import Biography from "./../biography"
 import bkg from "./../../assets/images/AMO_bkg.jpg"
 import meandres from "./../../assets/images/meandres.png"
 import "./homepage.scss"

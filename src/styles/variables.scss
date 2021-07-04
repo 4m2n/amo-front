@@ -1,5 +1,7 @@
 @import "bulma/sass/utilities/initial-variables.sass";
 
+$header-height: 64px;
+
 // colors
 $color-grey: grey;
 $color-dark-blue: #1d212e;
@@ -12,3 +14,6 @@ $font-light: 300;
 $font-normal: 400;
 $font-bold: 700;
 $font-black: 900;
+
+// fonts sie
+$font-small: .9rem;

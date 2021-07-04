@@ -6,7 +6,7 @@ import "./footer.scss"
 const Footer = () =>
   <footer>
     <p>
-    © {getCurrentYear()} Amaury Langlois / Photographies © Mathieu Lagraula
+      © {getCurrentYear()} Amaury Langlois / Photographies © Mathieu Lagraula
     </p>
     <p>
       Coded with ❤ by&nbsp;

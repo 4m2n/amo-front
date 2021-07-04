@@ -1,38 +1,26 @@
-import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import parse from "./../../parser/parser"
+import React from "react"
 import "./biography.scss"
+import parse from "./../../parser/parser"
 
-// Biography :: () -> React.Component
-export default function Biography() {
-  const [bioIsVisible, setBioIsVisible] = useState(false)
+// Biography :: Props -> React.Component
+const Biography = ({
+  bioIsVisible = false,
+  setBioIsVisible = () => {},
+  data = {},
+}) =>
+  <section className="biography container">
+    <h1>{data.markdownRemark.frontmatter.title}</h1>
 
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      markdownRemark(frontmatter: {id: {eq: "biography"}}) {
-        frontmatter {
-          title
-          id
-        }
-        htmlAst
-      }
-    }
-  `)
+    <article className={bioIsVisible ? "is-expanded" : "is-collapsed"}>
+      {parse(data.markdownRemark.htmlAst)}
+    </article>
 
-  return (
-    <section className="biography container">
-      <h1>{data.markdownRemark.frontmatter.title}</h1>
+    <button
+      className="expand-bio"
+      onClick={() => bioIsVisible ? setBioIsVisible(false) : setBioIsVisible(true)}
+    >
+      > {bioIsVisible ? "Refermer" : "Lire la bio complète"}
+    </button>
+  </section>
 
-      <article className={bioIsVisible ? "is-expanded" : "is-collapsed"}>
-        {parse(data.markdownRemark.htmlAst)}
-      </article>
-
-      <button
-        className="expand-bio"
-        onClick={() => bioIsVisible ? setBioIsVisible(false) : setBioIsVisible(true)}
-      >
-        > {bioIsVisible ? "Refermer" : "Lire la bio complète"}
-      </button>
-    </section>
-  )
-}
+export default Biography

@@ -1,8 +1,10 @@
+@import "./../../styles/variables.scss";
+
 .contact {
   a {
     display: block;
     text-align: right;
     line-height: 1.25;
-    font-size: .9rem;
+    font-size: $font-small;
   }
 }
