@@ -1,24 +1,25 @@
 import React from "react"
-import { both, cond, equals, map, o, prop } from "ramda"
+import { both, cond, equals, o, prop } from "ramda"
+import { mapIndexed } from "./../utils"
 
-// createParagraph :: Element -> React.component
-export const createParagraph = element =>
-  <p>
+// createParagraph :: (Element, Number) -> React.component
+export const createParagraph = (element, idx) =>
+  <p key={`p-${idx}`}>
     {parse(element)}
   </p>
 
-// createText :: Element -> String
+// createText :: (Element, Number) -> String
 export const createText = prop("value")
 
-// createBold :: Element -> React.Component
-export const createBold = element =>
-  <b>
+// createBold :: (Element, Number) -> React.Component
+export const createBold = (element, idx) =>
+  <b key={`b-${idx}`}>
     {parse(element)}
   </b>
 
 // createItalic :: Element -> React.Component
-export const createItalic = element =>
-  <i>
+export const createItalic = (element, idx) =>
+  <i key={`i-${idx}`}>
     {parse(element)}
   </i>
 
@@ -40,7 +41,7 @@ export const isBold = both(isElement, hasTag("strong"))
 // isItalic :: Element -> Boolean
 export const isItalic = both(isElement, hasTag("em"))
 
-// createElement :: Element -> React.Component
+// createElement :: (Element, Number) -> React.Component
 const createElement = cond([
   [isParagraph, createParagraph],
   [isText, createText],
@@ -48,7 +49,9 @@ const createElement = cond([
   [isItalic, createItalic],
 ])
 
+// We need to use an indexed map here because each node should have its own key.
+//
 // parse :: HtmlAst -> React.Component
-export const parse = o(map(createElement), prop("children"))
+export const parse = o(mapIndexed(createElement), prop("children"))
 
 export default parse
