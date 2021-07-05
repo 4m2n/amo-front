@@ -1,0 +1,22 @@
+@import "./../styles/variables.scss";
+@import "./../styles/mixins.scss";
+
+section.not-found {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+
+  .wrapper {
+    text-align: center;
+
+    h1 {
+      font-weight: $font-black;
+      font-size: 10rem;
+    }
+
+    a.btn-teal {
+      margin-top: $size-1;
+    }
+  }
+}

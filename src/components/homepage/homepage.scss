@@ -67,17 +67,6 @@ section.homepage {
             margin-bottom: $size-4;
           }
         }
-
-        a.order-button {
-          @include animate-fade-link();
-
-          display: inline-block;
-          background-color: $color-turquoise;
-          color: white;
-          font-weight: $font-bold;
-          padding: $size-7;
-          margin-top: $size-5;
-        }
       }
     }
   }

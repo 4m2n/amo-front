@@ -41,7 +41,7 @@ const Homepage = () =>
           </p>
 
           <a
-            className="order-button"
+            className="btn-teal"
             href={getMailto()}
           >
             Commander (5€)
