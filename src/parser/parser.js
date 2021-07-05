@@ -22,14 +22,14 @@ export const createItalic = element =>
     {parse(element)}
   </i>
 
+// isText :: Element -> Boolean
+export const isText = o(equals("text"), prop("type"))
+
 // isElement :: Element -> Boolean
 export const isElement = o(equals("element"), prop("type"))
 
 // hasTag :: Element -> String -> Boolean
 export const hasTag = tag => o(equals(tag), prop("tagName"))
-
-// isText :: Element -> Boolean
-export const isText = o(equals("text"), prop("type"))
 
 // isParagraph :: Element -> Boolean
 export const isParagraph = both(isElement, hasTag("p"))
@@ -41,7 +41,7 @@ export const isBold = both(isElement, hasTag("strong"))
 export const isItalic = both(isElement, hasTag("em"))
 
 // createElement :: Element -> React.Component
-export const createElement = cond([
+const createElement = cond([
   [isParagraph, createParagraph],
   [isText, createText],
   [isBold, createBold],
