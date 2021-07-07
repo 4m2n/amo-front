@@ -15,6 +15,7 @@ button {
 .btn-teal {
   @include animate-fade-link();
 
+  cursor: pointer;
   display: inline-block;
   background-color: $color-turquoise;
   color: white;

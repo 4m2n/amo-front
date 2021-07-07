@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Contact from "./../contact/contact"
 import Biography from "./../biography"
 import bkg from "./../../assets/images/AMO_bkg.jpg"
@@ -13,42 +13,63 @@ const getMailto = () => [
 ].join('')
 
 // Homepage :: () -> React.Component
-const Homepage = () =>
-  <section className="homepage">
-    <figure>
-      <img src={bkg} alt="mout" />
-      <figcaption>
-        <Contact showSocialNetworks={true} />
-      </figcaption>
-    </figure>
+const Homepage = () => {
+  const [modalOpened, setModalOpened] = useState(false);
 
-    <Biography />
+  return (
+    <section className="homepage">
+      <figure>
+        <img src={bkg} alt="mout" />
+        <figcaption>
+          <Contact showSocialNetworks={true} />
+        </figcaption>
+      </figure>
 
-    <div className="extended-play">
-      <div className="container">
-        <figure>
-          <img src={meandres} alt="méandres" />
-        </figure>
-        <aside>
-          <h1>Nouvel EP</h1>
-          <h2>MÉANDRES</h2>
-          <p>
-            5 titres<br/>
-            17'
-          </p>
-          <p>
-            Disponible en CD
-          </p>
+      <Biography />
 
-          <a
-            className="btn-teal"
-            href={getMailto()}
-          >
-            Commander (5€)
-          </a>
-        </aside>
+      <div className="extended-play">
+        <div className="container">
+          <figure>
+            <img src={meandres} alt="méandres" />
+          </figure>
+          <aside>
+            <h1>Nouvel EP</h1>
+            <h2>MÉANDRES</h2>
+            <p>
+              5 titres<br/>
+              17'
+            </p>
+            <p>
+              Disponible en CD
+            </p>
+
+            <button className="btn-teal" onClick={() => setModalOpened(true)}>
+              Commander (5€)
+            </button>
+          </aside>
+        </div>
       </div>
-    </div>
-  </section>
+
+      {modalOpened &&
+        <div className="order-modal">
+          <div className="background container">
+            <h3>
+              La boutique est en construction !&nbsp;
+              <span className="im">r</span>
+            </h3>
+            <p>
+              Envoyez-moi un email à&nbsp;
+              <a href={getMailto()}>contact@amo-musique.fr</a> pour commander !
+            </p>
+            <button className="btn-teal" onClick={() => setModalOpened(false)}>
+              Fermer
+            </button>
+          </div>
+        </div>
+      }
+    </section>
+  )
+}
+
 
 export default Homepage

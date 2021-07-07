@@ -70,6 +70,44 @@ section.homepage {
       }
     }
   }
+
+  .order-modal {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(#000000, .75);
+
+    .background {
+      border-radius: 5px;
+      padding: $size-4;
+      background-color: white;
+
+      h3 {
+        font-weight: $font-bold;
+        font-size: $size-4;
+        margin-bottom: $size-4;
+
+        .im {
+          color: $color-grey;
+        }
+      }
+
+      p {
+        line-height: 1.5;
+
+        a {
+          @include animate-fade-link();
+
+          color: $color-orange;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: $tablet) {
@@ -113,6 +151,12 @@ section.homepage {
             margin: -10px;
           }
         }
+      }
+    }
+
+    .order-modal {
+      .background {
+        margin: $size-6;
       }
     }
   }
