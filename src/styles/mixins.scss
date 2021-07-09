@@ -1,0 +1,13 @@
+@mixin animate-default() {
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin animate-fade-link() {
+  @include animate-default();
+
+  opacity: 1;
+
+  &:hover {
+    opacity: .7;
+  }
+}

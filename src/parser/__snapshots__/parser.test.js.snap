@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser renders a bold element with a text child 1`] = `
+<b>
+  is bold
+</b>
+`;
+
+exports[`parser renders a full html AST to react components 1`] = `
+<i>
+  <p>
+    Hello !
+    <b>
+      This text is bold, 
+      <i>
+        but this part also is italic !
+      </i>
+    </b>
+    So it works.
+  </p>
+</i>
+`;
+
+exports[`parser renders a paragraph with a text child 1`] = `
+<p>
+  ola
+</p>
+`;
+
+exports[`parser renders an italic element with a text child 1`] = `
+<i>
+  is italic
+</i>
+`;
