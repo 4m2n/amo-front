@@ -3,7 +3,7 @@ FROM node:16-alpine3.11 as dev
 RUN apk update && \
     apk upgrade && \
     apk add git && \
-    apk add nasm && \
+    apk add make nasm autoconf automake libtool dpkg pkgconfig libpng libpng-dev g++ && \
     yarn global add gatsby-cli
 
 WORKDIR /app
