@@ -8,8 +8,15 @@ import Image from "./../image/image.js"
 // Homepage :: () -> React.Component
 const Homepage = () =>
   <section className="homepage">
-    <figure>
-      <Image filename="AMO_bkg" />
+    <figure className="banner">
+      <Image
+        filename="AMO_bkg"
+        alt="mout"
+        sizes={[768, 1024, 1216, 1408]}
+        formats={["webp", "jpg"]}
+        width={768}
+        height={257}
+      />
       <figcaption>
         <Contact showSocialNetworks={true} />
       </figcaption>
