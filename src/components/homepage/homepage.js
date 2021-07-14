@@ -2,14 +2,14 @@ import React from "react"
 import Contact from "./../contact/contact"
 import Biography from "./../biography"
 import ExtendedPlay from "./extended-play"
-import bkg from "./../../assets/images/AMO_bkg.jpg"
 import "./homepage.scss"
+import Image from "./../image/image.js"
 
 // Homepage :: () -> React.Component
 const Homepage = () =>
   <section className="homepage">
     <figure>
-      <img src={bkg} alt="mout" />
+      <Image filename="AMO_bkg" />
       <figcaption>
         <Contact showSocialNetworks={true} />
       </figcaption>
@@ -19,6 +19,5 @@ const Homepage = () =>
 
     <ExtendedPlay />
   </section>
-
 
 export default Homepage
