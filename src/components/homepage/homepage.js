@@ -20,5 +20,4 @@ const Homepage = () =>
     <ExtendedPlay />
   </section>
 
-
 export default Homepage
