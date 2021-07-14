@@ -3,6 +3,7 @@ module.exports = {
     title: "AMO front",
   },
   plugins: [
+    "gatsby-plugin-image",
     "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-filesystem",
