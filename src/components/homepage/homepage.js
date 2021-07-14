@@ -9,7 +9,11 @@ import "./homepage.scss"
 const Homepage = () =>
   <section className="homepage">
     <figure>
-      <StaticImage src="./../../assets/images/AMO_bkg.jpg" alt="mout" />
+      <StaticImage
+        src="./../../assets/images/AMO_bkg.jpg"
+        alt="mout"
+        quality={90}
+      />
       <figcaption>
         <Contact showSocialNetworks={true} />
       </figcaption>

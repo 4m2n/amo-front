@@ -10,9 +10,12 @@
     display: flex;
     justify-content: space-between;
 
-    figure img {
-      max-height: 350px;
-      filter: drop-shadow(7px 7px 5px #b18b7d)
+    figure {
+      filter: drop-shadow(7px 7px 5px #b18b7d);
+
+      .gatsby-image-wrapper * {
+        max-height: 350px;
+      }
     }
 
     aside {

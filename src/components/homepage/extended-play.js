@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import meandres from "./../../assets/images/meandres.png"
+import { StaticImage } from "gatsby-plugin-image"
 import "./extended-play.scss"
 
 // getMailto :: () -> String
@@ -18,7 +18,10 @@ const ExtendedPlay = () => {
       <div className="extended-play">
         <div className="container">
           <figure>
-            <img src={meandres} alt="méandres" />
+            <StaticImage
+              src="./../../assets/images/meandres.png"
+              alt="méandres"
+            />
           </figure>
           <aside>
             <h1>Nouvel EP</h1>
