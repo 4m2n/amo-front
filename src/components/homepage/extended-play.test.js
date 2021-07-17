@@ -1,49 +1,46 @@
-import { render, fireEvent } from "@testing-library/react"
+import { render, fireEvent, waitFor } from "@testing-library/react"
 import { pipe, prop, tap } from "ramda"
 import React from "react"
 import ExtendedPlay from "./extended-play"
 
 describe("components :: extended-play", () => {
-  it("should have the order modal hidden by default", () => pipe(
-    render,
-    prop("container"),
-    container => container.querySelector(".order-modal"),
-    modal => expect(modal).toBeNull(),
-  )(<ExtendedPlay />))
+  it("should have the order modal hidden by default", async () => {
+    const { container } = render(<ExtendedPlay />)
 
-  it("should open the order modal when the order button is pressed", () => pipe(
-    render,
-    tap(render => fireEvent.click(
-      render.container.querySelector(".extended-play button")
-    )),
-    prop("container"),
-    container => container.querySelectorAll(".order-modal"),
-    modal => expect(modal).toHaveLength(1),
-  )(<ExtendedPlay />))
+    await waitFor(() => {
+      expect(container.querySelector(".order-modal")).toBeNull()
+    })
+  })
 
-  it("should close the modal when the overlay is clicked", () => pipe(
-    render,
-    tap(render => fireEvent.click(
-      render.container.querySelector(".extended-play button")
-    )),
-    tap(render => fireEvent.click(
-      render.container.querySelector(".order-modal")
-    )),
-    prop("container"),
-    container => container.querySelector(".order-modal"),
-    modal => expect(modal).toBeNull(),
-  )(<ExtendedPlay />))
+  it("should open the order modal when the order button is pressed", async () => {
+    const { container } = render(<ExtendedPlay />)
 
-  it("should close the modal when the close button is pressed", () => pipe(
-    render,
-    tap(render => fireEvent.click(
-      render.container.querySelector(".extended-play button")
-    )),
-    tap(render => fireEvent.click(
-      render.container.querySelector(".order-modal button")
-    )),
-    prop("container"),
-    container => container.querySelector(".order-modal"),
-    modal => expect(modal).toBeNull(),
-  )(<ExtendedPlay />))
+    fireEvent.click(container.querySelector(".extended-play button"))
+
+    await waitFor(() => {
+      expect(container.querySelectorAll(".order-modal")).toHaveLength(1)
+    })
+  })
+
+  it("should close the modal when the overlay is clicked", async () => {
+    const { container } = render(<ExtendedPlay />)
+
+    fireEvent.click(container.querySelector(".extended-play button"))
+    fireEvent.click(container.querySelector(".order-modal"))
+
+    await waitFor(() => {
+      expect(container.querySelector(".order-modal")).toBeNull()
+    })
+  })
+
+  it("should close the modal when the close button is pressed", async () => {
+    const { container } = render(<ExtendedPlay />)
+
+    fireEvent.click(container.querySelector(".extended-play button"))
+    fireEvent.click(container.querySelector(".order-modal button"))
+
+    await waitFor(() => {
+      expect(container.querySelector(".order-modal")).toBeNull()
+    })
+  })
 })

@@ -2,8 +2,12 @@
 @import "./../../styles/mixins.scss";
 
 section.homepage {
-  figure {
+  figure.banner {
     position: relative;
+
+    picture, source, img {
+      width: 100%;
+    }
 
     .contact {
       position: absolute;
