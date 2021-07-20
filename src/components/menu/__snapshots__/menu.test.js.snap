@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components :: menu should have an active menu item when the page matches the current path 1`] = `
+<li
+  className="active"
+>
+  <a
+    href="/concerts"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    concerts
+  </a>
+  <div
+    className="separator"
+  />
+</li>
+`;
+
+exports[`components :: menu should have an inactive menu item when the page doesn't matches the current path 1`] = `
+<li
+  className=""
+>
+  <a
+    href="/biographie"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    biographie
+  </a>
+  <div
+    className="separator"
+  />
+</li>
+`;

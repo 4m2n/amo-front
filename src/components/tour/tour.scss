@@ -1,0 +1,47 @@
+@import "./../../styles/variables.scss";
+
+section.tour {
+  background-color: $color-grey-light;
+  height: 100%;
+
+  h1 {
+    font-size: $size-4;
+    padding-top: $size-2;
+  }
+
+  table.show-table {
+    background-color: white;
+    width: 100%;
+
+    tr {
+      &:not(:last-child) {
+        border-bottom: 1px solid lighten($color-grey, 35%);
+      }
+
+      th, td {
+        vertical-align: top;
+        line-height: 1.5;
+        padding: $size-6;
+
+        a.btn-teal {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  article {
+    background-color: white;
+    padding: $size-6;
+    line-height: 1.5;
+    margin-bottom: $size-6;
+
+    h2 {
+      font-size: $size-5;
+    }
+
+    p.price {
+      margin-top: $size-4;
+    }
+  }
+}

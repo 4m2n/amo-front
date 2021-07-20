@@ -1,6 +1,20 @@
 import React from "react"
-import { both, cond, equals, o, prop } from "ramda"
 import { mapIndexed } from "./../utils"
+import {
+  always,
+  append,
+  both,
+  cond,
+  equals,
+  flip,
+  identity,
+  ifElse,
+  last,
+  o,
+  pipe,
+  prop,
+  uncurryN,
+} from "ramda"
 
 // createParagraph :: (Element, Number) -> React.component
 export const createParagraph = (element, idx) =>
@@ -55,3 +69,36 @@ const createElement = cond([
 export const parse = o(mapIndexed(createElement), prop("children"))
 
 export default parse
+
+// getChildren :: Object -> Any
+export const getChildren = prop("children")
+
+// getLastChildren :: AstNode -> AstNode
+export const getLastChildren = o(last, getChildren)
+
+// hasChildren :: Node -> Boolean
+export const hasChildren = both(
+  node => node.children !== undefined,
+  node => node.children.length > 0,
+)
+
+// getDeepestChildOrIdentity :: Node -> Node
+export const getDeepestChildOrIdentity = ifElse(
+  hasChildren,
+  node => getDeepestChildOrIdentity(getLastChildren(node)),
+  identity,
+)
+
+// curriedGetTdNodeText :: [String] -> TdNode -> [String]
+export const curriedGetTdNodeText = acc => pipe(
+  getDeepestChildOrIdentity,
+  ifElse(
+    isText,
+    createText,
+    always(undefined),
+  ),
+  flip(append)(acc),
+)
+
+// getTdNodeText :: ([String], TdNode) -> [String]
+export const getTdNodeText = uncurryN(2, curriedGetTdNodeText)

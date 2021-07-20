@@ -24,6 +24,12 @@ button {
   margin-top: $size-5;
 }
 
+h1.title {
+  font-size: $size-5;
+  font-weight: $font-bold;
+  margin-bottom: $size-4;
+}
+
 * {
   font-family: "ClarityCity";
   color: $color-dark-blue;

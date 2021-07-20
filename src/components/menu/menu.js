@@ -2,9 +2,36 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import Contact from "./../contact/contact"
 import "./menu.scss"
+import {
+  equals,
+  last,
+  pipe,
+  split,
+} from "ramda"
+
+// isPage :: String -> String -> Boolean
+export const isPage = page => pipe(
+  split("/"),
+  last,
+  equals(page),
+)
+
+// MenuItem :: Props :: React.Component
+export const MenuItem = ({
+  page = "",
+  path = "",
+}) =>
+  <li className={isPage(page)(path) ? "active" : ""} >
+    <Link to={`/${page}`}>
+      {page}
+    </Link>
+    <div className="separator"></div>
+  </li>
 
 // Menu :: Props -> React.Component
-const Menu = () => {
+const Menu = ({
+  path,
+}) => {
   const [opened, setOpened] = useState(false);
 
   return (
@@ -29,22 +56,10 @@ const Menu = () => {
 
       <nav className={opened ? "opened" : "closed"}>
         <ul>
-          <li>
-            <Link to="/concerts">Concerts</Link>
-            <div className="separator"></div>
-          </li>
-          <li>
-            <Link to="/ecouter">Écouter</Link>
-            <div className="separator"></div>
-          </li>
-          <li>
-            <Link to="/pro">Pro</Link>
-            <div className="separator"></div>
-          </li>
-          <li>
-            <Link to="/boutique">Boutique</Link>
-            <div className="separator"></div>
-          </li>
+          <MenuItem page="concerts" path={path} />
+          <MenuItem page="ecouter" path={path} />
+          <MenuItem page="pro" path={path} />
+          <MenuItem page="boutique" path={path} />
         </ul>
       </nav>
     </header>
