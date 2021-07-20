@@ -7,7 +7,7 @@ export default function Biography() {
   const [bioIsVisible, setBioIsVisible] = useState(false)
 
   const data = useStaticQuery(graphql`
-    query HeaderQuery {
+    query BiographyQuery {
       markdownRemark(frontmatter: {id: {eq: "biography"}}) {
         frontmatter {
           title

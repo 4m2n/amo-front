@@ -2,10 +2,10 @@ import React from "react"
 import Layout from "./../components/layout/layout"
 import Homepage from "./../components/homepage/homepage"
 
-// Homepage :: () -> React.Component
-const HomePage = () =>
+// HomepageTemplate :: () -> React.Component
+const HomepageTemplate = () =>
   <Layout>
     <Homepage />
   </Layout>
 
-export default HomePage
+export default HomepageTemplate

@@ -3,4 +3,9 @@ exports.createPages = ({ actions }) => {
     path: "/",
     component: require.resolve(`./src/templates/homepage.js`),
   })
+
+  actions.createPage({
+    path: "/concerts",
+    component: require.resolve(`./src/templates/tour.js`),
+  })
 }
