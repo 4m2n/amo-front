@@ -118,4 +118,106 @@ describe("parser", () => {
       },
     ],
   })))
+
+  it("get the childrens of a node", () => pipe(
+    parser.getChildren,
+    result => expect(result).toEqual([1,2,3]),
+  )({
+    type: "element",
+    tagNage: "table",
+    children: [1,2,3],
+  }))
+
+  it("get the last child of a node", () => pipe(
+    parser.getLastChildren,
+    result => expect(result).toBe(3),
+  )({
+    type: "element",
+    tagNage: "table",
+    children: [1,2,3],
+  }))
+
+  it("determines that a node has children", () => pipe(
+    parser.hasChildren,
+    result => expect(result).toBeTruthy()
+  )({
+    type: "element",
+    tagNage: "table",
+    children: [1,2,3],
+  }))
+
+  it("determines that a node has no children (empty list)", () => pipe(
+    parser.hasChildren,
+    result => expect(result).toBeFalsy()
+  )({
+    type: "element",
+    tagNage: "table",
+    children: [],
+  }))
+
+  it("determines that a node has no children (not a node)", () => pipe(
+    parser.hasChildren,
+    result => expect(result).toBeFalsy()
+  )({
+    type: "text",
+    value: "ah",
+  }))
+
+  it("finds the deepest childless element in an AST", () => pipe(
+    parser.getDeepestChildOrIdentity,
+    result => expect(result).toEqual({
+      type: "text",
+      value: "ah",
+    })
+  )({
+    children: [
+      {
+        children: [
+          {
+            children: [
+              {
+                type: "text",
+                value: "ah",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  }))
+
+  it("adds the deepest text value of an AST to the accumulator", () => pipe(
+    parser.curriedGetTdNodeText(["my", "acc"]),
+    newAcc => expect(newAcc).toEqual([
+      "my",
+      "acc",
+      "ah",
+    ])
+  )({
+    children: [
+      {
+        children: [
+          {
+            type: "text",
+            value: "ah",
+          },
+        ],
+      },
+    ],
+  }))
+
+  it("adds an undefined value to the accumulator if the deepest child node has no children", () => pipe(
+    parser.curriedGetTdNodeText(["my", "acc"]),
+    newAcc => expect(newAcc).toEqual([
+      "my",
+      "acc",
+      undefined,
+    ])
+  )({
+    children: [
+      {
+        children: [],
+      },
+    ],
+  }))
 })

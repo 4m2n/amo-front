@@ -3,12 +3,13 @@ import Menu from "./../menu/menu"
 import Footer from "./../footer/footer"
 import "./layout.scss"
 
-// Layout :: () ->  React.Component
+// Layout :: Props ->  React.Component
 const Layout = ({
+  path,
   children,
 }) =>
   <main>
-    <Menu />
+    <Menu path={path} />
     <div className="content">
       {children}
     </div>

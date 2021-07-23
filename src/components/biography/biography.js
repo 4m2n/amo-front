@@ -9,7 +9,9 @@ const Biography = ({
   data = {},
 }) =>
   <section className="biography container">
-    <h1>{data.markdownRemark.frontmatter.title}</h1>
+    <h1 className="title">
+      {data.markdownRemark.frontmatter.title}
+    </h1>
 
     <article className={bioIsVisible ? "is-expanded" : "is-collapsed"}>
       {parse(data.markdownRemark.htmlAst)}
