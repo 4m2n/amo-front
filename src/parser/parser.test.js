@@ -2,7 +2,7 @@ import React from "react"
 import renderer from "react-test-renderer"
 import { pipe, tap } from "ramda"
 import * as parser from "./parser"
-import { done } from "./../utils"
+import { done } from "./../test-utils"
 
 describe("parser", () => {
   it("renders a paragraph with a text child", () => pipe(

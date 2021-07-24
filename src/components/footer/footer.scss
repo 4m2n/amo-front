@@ -1,24 +1,41 @@
 @import "./../../styles/variables.scss";
+@import "./../../styles/mixins.scss";
 
 footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   flex-shrink: 0; // see https://css-tricks.com/couple-takes-sticky-footer/
-  padding: $size-6;
   font-size: $font-small;
+  border-top: 1px $color-grey solid;
 
   p {
     color: $color-grey;
     text-align: center;
+    padding: $size-4 0;
 
-    &:first-child {
-      padding-top: $size-3;
-      border-top: 1px $color-grey solid;
+    span {
+      display: inline-block;
+      margin: 0 10px;
     }
 
-    &:last-child {
-      margin-top: $size-7;
+    a {
+      @include animate-fade-link();
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  footer {
+    flex-direction: column;
+
+    p {
+      padding-bottom: 0;
+      padding-top: $size-7;
+
+      &:last-child {
+        padding-bottom: $size-7;
+      }
     }
   }
 }

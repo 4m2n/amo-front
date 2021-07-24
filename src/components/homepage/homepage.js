@@ -1,10 +1,11 @@
 import React from "react"
-import Contact from "./../contact/contact"
 import Biography from "./../biography"
+import Contact from "./../contact/contact"
 import ExtendedPlay from "./extended-play"
-import Newscast from "./newscast"
-import "./homepage.scss"
 import Image from "./../image/image.js"
+import LatestInterview from "./latest-interview"
+import NextShow from "./../tour/next-show"
+import "./homepage.scss"
 
 // Homepage :: () -> React.Component
 const Homepage = () =>
@@ -23,9 +24,13 @@ const Homepage = () =>
       </figcaption>
     </figure>
 
-    <Newscast />
-
     <Biography />
+
+    <section className="newscast container">
+      <LatestInterview />
+      <div className="separator is-hidden-mobile"></div>
+      <NextShow />
+    </section>
 
     <ExtendedPlay />
   </section>
