@@ -2,6 +2,7 @@ import React from "react"
 import Contact from "./../contact/contact"
 import Biography from "./../biography"
 import ExtendedPlay from "./extended-play"
+import Newscast from "./newscast"
 import "./homepage.scss"
 import Image from "./../image/image.js"
 
@@ -21,6 +22,8 @@ const Homepage = () =>
         <Contact showSocialNetworks={true} />
       </figcaption>
     </figure>
+
+    <Newscast />
 
     <Biography />
 
