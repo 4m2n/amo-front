@@ -19,6 +19,7 @@ export const createContainer = component =>
     {component}
   </Provider>
 
+// createTestScheduler :: () -> TestScheduler
 export const createTestScheduler = () => new TestScheduler((actual, expected) => {
   expect(actual).toEqual(expected)
 })
