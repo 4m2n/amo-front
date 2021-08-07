@@ -2,7 +2,7 @@ import React from "react"
 import { render, fireEvent } from "@testing-library/react"
 import renderer from "react-test-renderer"
 import { pipe, prop, tap } from "ramda"
-import { done } from "./../../utils"
+import { done } from "./../../test-utils"
 import {
   default as Menu,
   MenuItem,

@@ -4,9 +4,14 @@ import "./footer.scss"
 
 // Footer :: Props -> React.Component
 const Footer = () =>
-  <footer>
+  <footer className="container">
     <p>
-      © {getCurrentYear()} Amaury Langlois / Photographies © Mathieu Lagraula
+      © {getCurrentYear()} Amaury Langlois
+      <span className="is-hidden-mobile">/</span>
+    </p>
+    <p>
+      Photographies © Mathieu Lagraula
+      <span className="is-hidden-mobile">/</span>
     </p>
     <p>
       Coded with ❤ by&nbsp;

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components :: homepage :: latest-interview displays the interview content after loading 1`] = `
+<div
+  className="latest-interview"
+>
+  <h1
+    className="title"
+  >
+    Dernières actualités
+  </h1>
+  <div
+    className="soundcloud-widget"
+  >
+    <iframe
+      allow="autoplay"
+      className="is-hidden"
+      id="sc-interview"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1290749911"
+      title="sc-interview"
+    />
+  </div>
+  <img
+    alt=""
+    src="my-wonderfull-artwork"
+  />
+  <time>
+    05/10/2011
+  </time>
+  <p
+    className="description"
+  >
+    A test interview
+  </p>
+</div>
+`;

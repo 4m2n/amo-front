@@ -8,16 +8,31 @@ import {
   test,
   pipe,
   uniq,
+  equals,
+  identity,
+  ifElse,
+  o,
+  prop,
 } from "ramda"
+import {
+  Observable,
+} from "rxjs"
+
+// mapIndexed :: Function -> List -> List
+export const mapIndexed = addIndex(map)
+
+// Date utils //////////////////////////////////////////////////////////////////
 
 // getCurrentYear :: () -> Number
 export const getCurrentYear = () => (new Date()).getFullYear()
 
-// done :: () -> _
-export const done = () => undefined
+// toDateString :: String -> String
+export const toFrenchDate = pipe(
+  isoDate => new Date(isoDate),
+  date => date.toLocaleDateString("fr-FR"),
+)
 
-// mapIndexed :: Function -> List -> List
-export const mapIndexed = addIndex(map)
+// File utils //////////////////////////////////////////////////////////////////
 
 // createSourceList :: ([Number], [String]) -> String -> [String]
 export const createSourceList = (sizes, formats) => pipe(
@@ -54,3 +69,29 @@ export const generateImageSizesFromList = pipe(
   map(size => `(max-width: ${size}px) ${size}px`),
   join(", "),
 )
+
+// Redux utils /////////////////////////////////////////////////////////////////
+
+// ofType :: ActionType -> Action -> Boolan
+export const ofType = actionType => o(equals(actionType), prop("type"))
+
+// handleErrorOrContinue :: (ActionType, * -> Action) -> Action -> Action
+export const handleErrorOrContinue = (errorType, actionCreator) => ifElse(
+  ofType(errorType),
+  identity,
+  actionCreator,
+)
+
+// Observable utils ////////////////////////////////////////////////////////////
+
+// fromWidget :: (Widget, String) -> Observable
+export const fromWidget = (widget, event) => new Observable(subscriber => {
+  try {
+    widget.bind(
+      event,
+      () => subscriber.next(event),
+    )
+  } catch (err) {
+    subscriber.error(err)
+  }
+})

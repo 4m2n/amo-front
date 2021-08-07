@@ -32,12 +32,47 @@ section.homepage {
       }
     }
   }
+
+  section.newscast {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $size-1;
+
+    .latest-interview,
+    .next-show {
+      flex: 1 1 0;
+      line-height: 1.5;
+      font-weight: $font-light;
+    }
+
+    .separator {
+      min-width: 15%;
+    }
+
+    .next-show {
+      h2 {
+        font-weight: $font-bold;
+      }
+
+      p {
+        margin-top: $size-5;
+      }
+    }
+  }
 }
 
 @media (max-width: $tablet) {
   section.homepage {
     .contact > a {
       display: none;
+    }
+
+    section.newscast {
+      flex-direction: column;
+
+      .next-show {
+        margin-top: $size-1;
+      }
     }
   }
 }

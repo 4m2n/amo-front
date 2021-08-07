@@ -1,0 +1,35 @@
+@import "./../../../styles/variables.scss";
+@import "./../../../styles/mixins.scss";
+
+.latest-interview {
+  time {
+    font-weight: $font-bold;
+  }
+
+  img {
+    float: left;
+    padding-right: $size-5;
+    padding-bottom: $size-5;
+  }
+
+  p.description {
+    margin: $size-5 0;
+  }
+
+  .soundcloud-widget {
+    button {
+      &.play:not(:hover) {
+        @include animate-blink();
+      }
+
+      position: absolute;
+      margin-left: $size-7;
+      margin-top: $size-7;
+
+      span {
+        font-size: 5rem;
+        color: white;
+      }
+    }
+  }
+}

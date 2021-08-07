@@ -1,20 +1,18 @@
 import * as utils from "./utils"
 import { pipe } from "ramda"
 
-beforeEach(() => {
-  const DATE_TO_USE = new Date("1990")
-  global.Date = jest.fn(() => DATE_TO_USE)
-})
-
-describe("utils", () =>  {
+describe("date utils", () =>  {
   it("determines the current year", () => pipe(
-    result => expect(result).toBe(1990),
+    result => expect(result).toBe(2021),
   )(utils.getCurrentYear()))
 
-  it("ends a test pipe", () => pipe(
-    result => expect(result).toBeUndefined(),
-  )(utils.done()))
+  it("formats a date in french", () => pipe(
+    utils.toFrenchDate,
+    result => expect(result).toBe("12/06/1990"),
+  )("1990-06-12T00:05:32.000Z"))
+})
 
+describe("file utils", () =>  {
   it("creates a source list", () => {
     expect(
       utils.createSourceList([320, 760], ["webp", "jpg"])("my-file")
@@ -69,5 +67,83 @@ describe("utils", () =>  {
       "(max-width: 720px) 720px, (max-width: 360px) 360px"
     )
   })
+})
+
+describe("redux utils", () =>  {
+  it("identifies that an action matches a given type", () => {
+    expect(
+      utils.ofType("my-type")({ type: "my-type" })
+    ).toBeTruthy()
+
+    expect(
+      utils.ofType("my-type")({ type: "nein" })
+    ).toBeFalsy()
+  })
+
+  it("should transparently return the error action when it matches the given type", () => {
+    const MY_ERROR = "my-error"
+    const next = () => ({ type: "next" })
+
+    expect(
+      utils.handleErrorOrContinue(MY_ERROR, next)({ type: "my-error" })
+    ).toEqual({
+      type: "my-error",
+    })
+  })
+
+  it("should return the nominal action when the error does not matches the expected type", () => {
+    const MY_ERROR = "error-type-a"
+    const next = () => ({ type: "next" })
+
+    expect(
+      utils.handleErrorOrContinue(MY_ERROR, next)({ type: "error-type-b" })
+    ).toEqual({
+      type: "next",
+    })
+  })
+})
+
+describe("observable utils", () =>  {
+  it("creates an observable that emits from a soundcloud widget binded event", done => {
+    const WidgetMock = function () {
+      this.bindedEvents = {}
+      let that = this
+
+      this.bind = function (event, callback) {
+        that.bindedEvents[event] = callback
+      }
+
+      this.play = function () {
+        that.bindedEvents["play"]()
+      }
+    }
+
+    const wm = new WidgetMock()
+
+    // creates an observable that will emit every time the "play" event occures
+    const fromWidget$ = utils.fromWidget(wm, "play")
+
+    // subscribe to the tested observable and assert on the result
+    fromWidget$.subscribe(event => {
+      expect(event).toBe("play")
+      done()
+    })
+
+    // simulates a call to the play method on the widget so the observable will
+    // emit and we can assert on the result
+    wm.play()
+  }, 1000)
+
+  it("errors out as an observable when an error occures", done => {
+    const fromWidget$ = utils.fromWidget({}, "play")
+
+    fromWidget$.subscribe(
+      () => null,
+      error => {
+        expect(error.toString()).toBe("TypeError: widget.bind is not a function")
+        done()
+      }
+    )
+  }, 1000)
 })
 

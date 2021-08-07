@@ -2,7 +2,7 @@ import { render } from "@testing-library/react"
 import { pipe, prop, tap } from "ramda"
 import Biography from "./biography"
 import React from "react"
-import { done } from "./../../utils"
+import { done } from "./../../test-utils"
 
 describe("components :: biography", () => {
   const data = {
