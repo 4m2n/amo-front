@@ -10,6 +10,11 @@ exports.createPages = ({ actions }) => {
   })
 
   actions.createPage({
+    path: "/ecouter",
+    component: require.resolve(`./src/templates/listen.js`),
+  })
+
+  actions.createPage({
     path: "/pro",
     component: require.resolve(`./src/templates/pro.js`),
   })
