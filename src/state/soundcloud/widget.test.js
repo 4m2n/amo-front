@@ -1,15 +1,17 @@
 import {
-  default as reducer,
   INITIAL_STATE,
+  allSoundsReceived,
+  clean,
+  currentSoundReceived,
+  default as reducer,
+  error,
   initialize,
   initialized,
-  currentSoundReceived,
-  play,
-  playing,
+  next,
   pause,
   paused,
-  error,
-  clean,
+  play,
+  playing,
 } from "./widget"
 
 describe("state :: soundcloud :: widget", () => {
@@ -40,6 +42,24 @@ describe("state :: soundcloud :: widget", () => {
     ).toEqual({
       ...INITIAL_STATE,
       currentSound: "my-sound",
+    })
+  })
+
+  it("reduces the ALL_SOUND_RECEIVED action", () => {
+    expect(
+      reducer(INITIAL_STATE, allSoundsReceived([1,2,3]))
+    ).toEqual({
+      ...INITIAL_STATE,
+      trackList: [1, 2, 3],
+      currentSound: 1,
+    })
+
+    expect(
+      reducer(INITIAL_STATE, allSoundsReceived([]))
+    ).toEqual({
+      ...INITIAL_STATE,
+      trackList: [],
+      currentSound: {},
     })
   })
 
@@ -88,6 +108,15 @@ describe("state :: soundcloud :: widget", () => {
       ...s1,
       isLoading: false,
       isPlaying: false,
+    })
+  })
+
+  it("reduces the NEXT_TRACK action", () => {
+    expect(
+      reducer(INITIAL_STATE, next(12))
+    ).toEqual({
+      ...INITIAL_STATE,
+      isLoading: true,
     })
   })
 

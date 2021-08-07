@@ -3,8 +3,7 @@ import { connect } from "react-redux"
 
 // mapStateToProps :: State -> Props
 const mapStateToProps = state => ({
-  isReady: state.soundcloud.isReady,
-  interview: state.soundcloud.currentSound,
+  interview: state.soundcloud.trackList[0] || null,
 })
 
 // LatestInterview :: Props -> React.Component

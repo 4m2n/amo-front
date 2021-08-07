@@ -1,0 +1,9 @@
+@import "./../../styles/mixins.scss";
+@import "./../../styles/variables.scss";
+
+.loader {
+  @include animate-blink();
+
+  background-color: lighten($color-grey, 40%);
+  width: 100%;
+}

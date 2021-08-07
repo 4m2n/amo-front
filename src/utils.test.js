@@ -1,6 +1,33 @@
 import * as utils from "./utils"
 import { pipe } from "ramda"
 
+describe("miscellaneous utils", () => {
+  it("can find the index of a sound by title in a sound list", () => {
+    const sounds = [
+      {
+        title: "my-title",
+      },
+      {
+        title: "another-title",
+      },
+      {
+        title: "third-title",
+      },
+    ]
+
+    expect(
+      utils.findIndexByTitle("another-title", sounds)
+    ).toBe(
+      1,
+    )
+    expect(
+      utils.findIndexByTitle("this-title-does-not-exists", sounds)
+    ).toBe(
+      0,
+    )
+  })
+})
+
 describe("date utils", () =>  {
   it("determines the current year", () => pipe(
     result => expect(result).toBe(2021),
@@ -146,4 +173,3 @@ describe("observable utils", () =>  {
     )
   }, 1000)
 })
-

@@ -6,29 +6,38 @@
     font-weight: $font-bold;
   }
 
-  img {
-    float: left;
-    padding-right: $size-5;
-    padding-bottom: $size-5;
-  }
-
   p.description {
     margin: $size-5 0;
   }
 
-  .soundcloud-widget {
-    button {
-      &.play:not(:hover) {
-        @include animate-blink();
-      }
+  .loader {
+    height: 150px;
+  }
 
+  figure {
+    position: relative;
+    float: left;
+    padding-right: $size-5;
+    padding-bottom: $size-5;
+
+    figcaption {
       position: absolute;
+      top: 0;
+      left: 0;
       margin-left: $size-7;
       margin-top: $size-7;
 
-      span {
-        font-size: 5rem;
-        color: white;
+      .soundcloud-controls {
+        button {
+          &.play:not(:hover) {
+            @include animate-blink();
+          }
+
+          span {
+            font-size: 5rem;
+            color: $color-white;
+          }
+        }
       }
     }
   }

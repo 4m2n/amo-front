@@ -1,18 +1,20 @@
 import {
   addIndex,
+  equals,
   filter,
   flatten,
   head,
-  join,
-  map,
-  test,
-  pipe,
-  uniq,
-  equals,
   identity,
   ifElse,
+  join,
+  map,
   o,
-  prop,
+  pipe,
+  prop,findIndex,
+  propEq,
+  test,
+  uncurryN,
+  uniq,
 } from "ramda"
 import {
   Observable,
@@ -20,6 +22,12 @@ import {
 
 // mapIndexed :: Function -> List -> List
 export const mapIndexed = addIndex(map)
+
+// findIndexByTitle :: (String, [Sound]) -> Number
+export const findIndexByTitle = uncurryN(2, title => pipe(
+  findIndex(propEq("title", title)),
+  index => index < 0 ? 0 : index,
+))
 
 // Date utils //////////////////////////////////////////////////////////////////
 

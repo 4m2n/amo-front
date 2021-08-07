@@ -9,7 +9,8 @@ import {
 
 // initial state
 export const INITIAL_STATE = {
-  currentSound: null,
+  currentSound: {},
+  trackList: [],
   error: null,
   isLoading: false,
   isPlaying: false,
@@ -21,10 +22,12 @@ export const INITIALIZE = "@amo/state/soundcloud/widget/INITIALIZE"
 export const INITIALIZED = "@amo/state/soundcloud/widget/INITIALIZED"
 export const CLEAN = "@amo/state/soundcloud/widget/CLEAN"
 export const CURRENT_SOUND_RECEIVED = "@amo/state/soundcloud/widget/CURRENT_SOUND_RECEIVED"
+export const ALL_SOUNDS_RECEIVED = "@amo/state/soundcloud/widget/ALL_SOUNDS_RECEIVED"
 export const PLAY = "@amo/state/soundcloud/widget/PLAY"
 export const PLAYING = "@amo/state/soundcloud/widget/PLAYING"
 export const PAUSE = "@amo/state/soundcloud/widget/PAUSE"
 export const PAUSED = "@amo/state/soundcloud/widget/PAUSED"
+export const NEXT_TRACK = "@amo/state/soundcloud/widget/NEXT_TRACK"
 export const ERROR = "@amo/state/soundcloud/widget/ERROR"
 export const WAIT_FOR_SOUNDCLOUD_EVENT = "@amo/state/soundcloud/widget/WAIT_FOR_SOUNDCLOUD_EVENT"
 
@@ -46,6 +49,12 @@ export const currentSoundReceived = sound => ({
   sound,
 })
 
+// allSoundsReceived :: [Sound] -> Action
+export const allSoundsReceived = sounds => ({
+  type: ALL_SOUNDS_RECEIVED,
+  sounds,
+})
+
 // play :: () -> Action
 export const play = () => ({ type: PLAY })
 
@@ -57,6 +66,12 @@ export const pause = () => ({ type: PAUSE })
 
 // paused :: () -> Action
 export const paused = () => ({ type: PAUSED })
+
+// next :: Number -> Action
+export const next = index => ({
+  type: NEXT_TRACK,
+  index,
+})
 
 // error :: String -> Action
 export const error = message => ({
@@ -87,6 +102,16 @@ export const reducer = cond([
     currentSound: sound,
   })],
 
+  [ofType(ALL_SOUNDS_RECEIVED), ({ sounds }, state) => ({
+    ...state,
+    // use the first sound of the list as the current sound by default
+    currentSound: sounds.length > 0
+      ? sounds[0]
+      : {}
+    ,
+    trackList: sounds,
+  })],
+
   [ofType(PLAY), (_, state) => ({
     ...state,
     isLoading: true,
@@ -109,6 +134,12 @@ export const reducer = cond([
     ...state,
     isLoading: false,
     isPlaying: false,
+  })],
+
+  [ofType(NEXT_TRACK), (_, state) => ({
+    ...state,
+    isLoading: true,
+    error: null,
   })],
 
   [ofType(ERROR), ({ message }, state) => ({

@@ -19,11 +19,11 @@
 }
 
 @mixin animate-fade-link() {
-  @include animate-default();
-
   opacity: 1;
 
   &:hover {
+    @include animate-default();
+
     opacity: .7;
   }
 }
