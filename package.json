@@ -17,6 +17,7 @@
   "dependencies": {
     "bulma": "^0.9.3",
     "gatsby": "^3.8.0",
+    "gatsby-plugin-react-helmet": "^4.11.0",
     "gatsby-plugin-sass": "^4.8.0",
     "gatsby-source-filesystem": "^3.8.0",
     "gatsby-transformer-remark": "^4.5.0",
@@ -24,6 +25,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-functional-lifecycle": "^3.0.0",
+    "react-helmet": "^6.1.0",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
     "redux-observable": "^2.0.0",

@@ -3,7 +3,6 @@ module.exports = {
     title: "AMO front",
   },
   plugins: [
-    "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -11,6 +10,8 @@ module.exports = {
         path: `${__dirname}/src/markdown`,
       },
     },
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
     "gatsby-transformer-remark",
   ],
 };
