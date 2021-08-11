@@ -12,7 +12,7 @@ export const INITIAL_STATE = {}
 
 // instance initial state
 export const INSTANCE_INITIAL_STATE = {
-  sources: "",
+  sources: [],
   error: null,
 }
 
