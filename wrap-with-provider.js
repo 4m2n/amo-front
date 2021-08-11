@@ -9,6 +9,7 @@ import consoleLogger from "./src/logger/console-logger"
 
 const epicMiddleware = createEpicMiddleware({
   dependencies: {
+    importImage: src => import(`/src/assets/images/${src}`),
     soundcloud: () => window["SC"] || null,
     soundcloudWidget: () => soundcloudWidgetRepository
   },

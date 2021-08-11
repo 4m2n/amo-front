@@ -6,8 +6,7 @@ module.exports = {
   },
   moduleNameMapper: {
     ".+\\.(css|styl|less|sass|scss)$": `identity-obj-proxy`,
-    ".+\\.(jpg|jpeg|png)$": `<rootDir>/__mocks__/file-mock-img.js`,
-    ".+\\.(webp)$": `<rootDir>/__mocks__/file-mock-webp.js`,
+    ".+\\.(jpg|jpeg|png|webp)$": `<rootDir>/__mocks__/file-mock.js`,
   },
   testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
