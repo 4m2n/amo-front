@@ -2,7 +2,7 @@ import React from "react"
 import Biography from "./../biography"
 import Contact from "./../contact/contact"
 import ExtendedPlay from "./extended-play"
-import Image from "./../image/image.js"
+import Image from "./../image"
 import LatestInterview from "./latest-interview"
 import NextShow from "./../tour/next-show"
 import "./homepage.scss"
@@ -12,6 +12,7 @@ const Homepage = () =>
   <section className="homepage">
     <figure className="banner">
       <Image
+        id="homepage-banner"
         filename="AMO_bkg"
         alt="mout"
         sizes={[768, 1024, 1216, 1408]}

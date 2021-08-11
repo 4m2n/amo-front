@@ -1,6 +1,6 @@
 import React, { useState } from "react"
+import Image from "./../image"
 import "./extended-play.scss"
-import Image from "./../image/image"
 
 // getMailto :: () -> String
 const getMailto = () => [
@@ -19,6 +19,7 @@ const ExtendedPlay = () => {
         <div className="container">
           <figure>
               <Image
+                id="meandres-cover"
                 filename="meandres"
                 alt="méandres"
                 sizes={[500]}
