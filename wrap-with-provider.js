@@ -15,10 +15,15 @@ const epicMiddleware = createEpicMiddleware({
   },
 })
 
+// createMiddlewares :: String -> Middlewares
+const createMiddlewares = env => env === "production"
+  ? applyMiddleware(epicMiddleware)
+  : applyMiddleware(epicMiddleware, consoleLogger)
+
 const store = createStore(
   rootReducer,
   {},
-  applyMiddleware(epicMiddleware, consoleLogger),
+  createMiddlewares(process.env.NODE_ENV),
 )
 
 epicMiddleware.run(rootEpic)
