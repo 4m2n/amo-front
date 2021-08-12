@@ -1,0 +1,23 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/mixins.scss";
+
+section.pro {
+  padding-top: $size-2;
+
+  a {
+    @include animate-fade-link();
+
+    display: inline-block;
+    background-color: $color-dark-blue;
+    color: $color-white;
+    text-align: center;
+    padding: $size-1;
+
+    span {
+      padding-bottom: $size-2;
+      display: block;
+      color: $color-white;
+      font-size: 4rem;
+    }
+  }
+}

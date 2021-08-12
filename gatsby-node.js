@@ -8,4 +8,9 @@ exports.createPages = ({ actions }) => {
     path: "/concerts",
     component: require.resolve(`./src/templates/tour.js`),
   })
+
+  actions.createPage({
+    path: "/pro",
+    component: require.resolve(`./src/templates/pro.js`),
+  })
 }
