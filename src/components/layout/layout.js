@@ -12,6 +12,7 @@ const Layout = ({
 }) =>
   <main>
     <Helmet>
+      <title>AMO - musique</title>
       <link rel="icon" type="image/x-icon" href={icon} />
     </Helmet>
     <Menu path={path} />
