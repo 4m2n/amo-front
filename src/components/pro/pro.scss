@@ -4,20 +4,26 @@
 section.pro {
   padding-top: $size-2;
 
-  a {
-    @include animate-fade-link();
+  .documents {
+    display: flex;
+    flex-direction: column;
 
-    display: inline-block;
-    background-color: $color-dark-blue;
-    color: $color-white;
-    text-align: center;
-    padding: $size-1;
+    a {
+      @include animate-fade-link();
 
-    span {
-      padding-bottom: $size-2;
-      display: block;
+      background-color: $color-dark-blue;
       color: $color-white;
-      font-size: 4rem;
+      display: inline-block;
+      margin-bottom: $size-1;
+      padding: $size-1;
+      text-align: center;
+
+      span {
+        padding-bottom: $size-2;
+        display: block;
+        color: $color-white;
+        font-size: 4rem;
+      }
     }
   }
 }
