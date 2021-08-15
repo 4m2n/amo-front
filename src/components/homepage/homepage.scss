@@ -33,6 +33,11 @@ section.homepage {
     }
   }
 
+  section.latest-clip {
+    background-color: $color-dark-blue;
+    margin-bottom: $size-2;
+  }
+
   section.newscast {
     display: flex;
     flex-direction: row;
