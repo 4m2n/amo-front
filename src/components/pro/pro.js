@@ -13,16 +13,20 @@ const Pro = () =>
         href={technicalFile}
         target="_blank"
       >
-        <span className="im">p</span>
-        Fiche technique
+        <p>
+          <span className="im">p</span>
+          Fiche technique
+        </p>
       </a>
       <a
         title="Télécharger la brochure"
         href={marketingFile}
         target="_blank"
       >
-        <span className="im">p</span>
-        Brochure
+        <p>
+          <span className="im">p</span>
+          Brochure
+        </p>
       </a>
     </div>
   </section>

@@ -16,17 +16,21 @@ section.pro {
       flex-grow: 1;
       margin: auto $size-7;
       background-color: $color-dark-blue;
-      color: $color-white;
       display: inline-block;
       margin-bottom: $size-1;
       padding: $size-1;
       text-align: center;
 
-      span {
-        padding-bottom: $size-2;
-        display: block;
+      p {
         color: $color-white;
-        font-size: 4rem;
+        min-width: 125px;
+
+        span {
+          padding-bottom: $size-2;
+          display: block;
+          color: $color-white;
+          font-size: 4rem;
+        }
       }
     }
   }
