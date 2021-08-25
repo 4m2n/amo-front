@@ -1,0 +1,37 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/mixins.scss";
+
+section.pro {
+  padding-top: $size-2;
+
+  .documents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    a {
+      @include animate-fade-link();
+
+      flex-grow: 1;
+      margin: auto $size-7;
+      background-color: $color-dark-blue;
+      display: inline-block;
+      margin-bottom: $size-1;
+      padding: $size-1;
+      text-align: center;
+
+      p {
+        color: $color-white;
+        min-width: 125px;
+
+        span {
+          padding-bottom: $size-2;
+          display: block;
+          color: $color-white;
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+}
