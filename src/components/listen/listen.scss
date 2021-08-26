@@ -1,0 +1,200 @@
+@import "./../../styles/mixins.scss";
+@import "./../../styles/variables.scss";
+
+section.listen {
+  .container {
+    padding-top: $size-2;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+
+    .tracklist {
+      flex-basis: 25%;
+
+      .loader {
+        height: 115px;
+      }
+
+      img {
+        margin-bottom: $size-1;
+        filter: drop-shadow(2px 2px 5px $color-dark-blue);
+      }
+
+      button.track {
+        line-height: 1.5;
+        position: relative;
+        display: block;
+        text-align: left;
+
+        &.is-selected {
+          font-weight: $font-bold;
+        }
+
+        &:not(.is-playing) {
+          @include animate-fade-link();
+
+          cursor: pointer;
+        }
+
+        span.im {
+          font-size: $size-7;
+          position: absolute;
+          top: 2px;
+          left: -15px;
+        }
+      }
+    }
+
+    .lyrics-wrapper {
+      flex-basis: 75%;
+      padding-left: $size-1;
+
+      .loader {
+        height: 640px;
+      }
+
+      .lyrics {
+        h1 {
+          font-size: $size-5;
+        }
+
+        .text {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          max-height: 640px;
+          overflow: hidden;
+
+          p {
+            flex: 1 1 auto;
+            font-weight: $font-light;
+            max-width: 50%;
+            line-height: 1.5;
+            margin-bottom: $size-4;
+            padding: 0 $size-7;
+
+            i {
+              font-style: normal;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .soundcloud-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    &.ready {
+      background-color: $color-dark-blue;
+    }
+
+    .loader {
+      height: $player-height;
+    }
+
+    button {
+      background-color: $color-white;
+      line-height: 2;
+
+      &.pause,
+      &.play {
+        margin: $size-7 $size-3;
+        font-size: $size-4;
+        border-radius: 23px;
+        width: 46px;
+        height: 46px;
+      }
+
+      &.pause {
+        box-shadow: inset -2px 2px 5px $color-dark-blue;
+      }
+
+      &.next,
+      &.previous {
+        border-radius: 15px;
+        width: 30px;
+        height: 30px;
+      }
+
+      span.im {
+        @include animate-fade-link();
+
+        color: $color-dark-blue;
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  section.listen {
+    .soundcloud-controls {
+      z-index: $z-index-1;
+      position: fixed;
+      width: 100%;
+    }
+
+    .container {
+      padding-top: $player-height;
+      flex-direction: column;
+
+      .tracklist {
+        flex-basis: auto;
+
+        .loader {
+          max-width: 200px;
+          margin-left: $size-5;
+        }
+
+        h1 {
+          padding-top: $size-2;
+        }
+
+        .wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+          img {
+            margin-bottom: 0;
+            vertical-align: top;
+            width: 200px;
+          }
+
+          .tracks {
+            margin-left: $size-5;
+            min-width: 220px;
+          }
+        }
+      }
+
+      .lyrics-wrapper {
+        flex-basis: auto;
+        padding-left: 0;
+        margin-top: $size-4;
+
+        .lyrics {
+          h1 {
+            padding-top: $size-4;
+            text-align: center;
+            border-top: 1px solid $color-dark-blue;
+          }
+
+          .text {
+            flex-wrap: nowrap;
+            max-height: 100%;
+
+            p {
+              max-width: 100%;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

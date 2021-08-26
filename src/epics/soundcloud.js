@@ -7,8 +7,11 @@ import {
   ERROR,
   INITIALIZE,
   INITIALIZED,
+  NEXT_TRACK,
   PAUSE,
   PLAY,
+  PLAYING,
+  allSoundsReceived,
   currentSoundReceived,
   error,
   initialized,
@@ -29,6 +32,7 @@ import {
   complement,
   compose,
   isNil,
+  map as rmap,
   o,
   pick,
   toString,
@@ -98,10 +102,10 @@ export const waitForSoundcloudToBePausedEpic = (action$, _, { soundcloudWidget }
     map(handleErrorOrContinue(ERROR, paused)),
   )
 
-// getCurrentSoundEpic :: Epic -> Observable Action Error,
+// getCurrentSoundEpic :: Epic -> Observable Action Error
 export const getCurrentSoundEpic = (action$, _, { soundcloudWidget }) =>
   action$.pipe(
-    ofType(INITIALIZED),
+    ofType(PLAYING),
     map(() => soundcloudWidget().getInstance()),
     filter(complement(isNil)),
     mergeMap(widget => from(new Promise(resolve => widget.getCurrentSound(resolve))).pipe(
@@ -109,7 +113,22 @@ export const getCurrentSoundEpic = (action$, _, { soundcloudWidget }) =>
     )),
     map(handleErrorOrContinue(
       ERROR,
-      o(currentSoundReceived, pickScAttributes)
+      o(currentSoundReceived, pickScAttributes),
+    )),
+  )
+
+// getAllSoundsEpic :: Epic -> Observable Action Error
+export const getAllSoundsEpic = (action$, _, { soundcloudWidget }) =>
+  action$.pipe(
+    ofType(INITIALIZED),
+    map(() => soundcloudWidget().getInstance()),
+    filter(complement(isNil)),
+    mergeMap(widget => from(new Promise(resolve => widget.getSounds(resolve))).pipe(
+      catchError(compose(of, error, toString)),
+    )),
+    map(handleErrorOrContinue(
+      ERROR,
+      o(allSoundsReceived, rmap(pickScAttributes)),
     )),
   )
 
@@ -139,9 +158,26 @@ export const pauseEpic = (action$, _, { soundcloudWidget }) =>
     map(handleErrorOrContinue(ERROR, waitForSoundcloudEvent)),
   )
 
+// nextTrackEpic :: Epic -> Observable Action Error
+export const nextTrackEpic = (action$, state$, { soundcloudWidget }) =>
+  action$.pipe(
+    ofType(NEXT_TRACK),
+    map(({ index }) => [index, soundcloudWidget().getInstance()]),
+    filter(([ _, widget ]) => widget !== null),
+    mergeMap(([ index, widget ]) => of(widget).pipe(
+      tap(widget => widget.skip(index)),
+      // always starts the sound from the beggining
+      tap(widget => widget.seekTo(0)),
+      catchError(compose(of, error, toString)),
+    )),
+    map(handleErrorOrContinue(ERROR, waitForSoundcloudEvent)),
+  )
+
 export default combineEpics(
+  getAllSoundsEpic,
   getCurrentSoundEpic,
   initializeSoundcloudWidgetEpic,
+  nextTrackEpic,
   pauseEpic,
   playEpic,
   waitForSoundcloudToBePausedEpic,

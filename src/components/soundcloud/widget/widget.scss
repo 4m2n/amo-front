@@ -1,7 +1,9 @@
-@import "./../../../styles/mixins.scss";
+@import "./../../../styles/variables.scss";
 
 .soundcloud-widget {
-  button {
-    cursor: pointer;
+  p.error {
+    color: $color-red;
+    font-weight: $font-bold;
+    padding: $size-4 0;
   }
 }

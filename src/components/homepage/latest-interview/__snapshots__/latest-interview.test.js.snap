@@ -20,10 +20,21 @@ exports[`components :: homepage :: latest-interview displays the interview conte
       title="sc-interview"
     />
   </div>
-  <img
-    alt=""
-    src="my-wonderfull-artwork"
-  />
+  <figure>
+    <img
+      alt=""
+      src="my-wonderfull-artwork"
+    />
+    <figcaption>
+      <div
+        className="soundcloud-controls "
+      >
+        <div
+          className="loader"
+        />
+      </div>
+    </figcaption>
+  </figure>
   <time>
     05/10/2011
   </time>

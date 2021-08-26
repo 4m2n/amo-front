@@ -50,6 +50,7 @@ const ExtendedPlay = () => {
         <div
           className="order-modal"
           onClick={() => setModalOpened(false)}
+          onKeyPress={() => undefined}
           role="button"
           tabIndex={0}>
         >

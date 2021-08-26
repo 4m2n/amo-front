@@ -66,9 +66,9 @@ export const Tour = ({
       {/* Mobile layout */}
       {createShowList(htmlAst).map((show, idx) =>
         <MobileShow
-          show={show}
-          idx={idx}
+          key={`mobile-show-${idx}`}
           className="is-hidden-tablet"
+          show={show}
         />
       )}
     </div>

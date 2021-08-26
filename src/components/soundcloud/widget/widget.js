@@ -5,37 +5,9 @@ import "./widget.scss"
 const Widget = ({
   id = "",
   url = "",
-  isPlaying = false,
-  isLoading = false,
-  isReady = false,
   error = null,
-  play = () => {},
-  pause = () => {},
 }) =>
   <div className="soundcloud-widget">
-    {isReady &&
-      <div className="controls">
-        {isPlaying
-          ? <button
-              className="pause"
-              disabled={isLoading}
-              onClick={() => pause()}
-              title="Mettre en pause"
-            >
-              <span className="im">y</span>
-            </button>
-          : <button
-              className="play"
-              disabled={isLoading}
-              onClick={() => play()}
-              title="Lire le morceau"
-            >
-              <span className="im">t</span>
-            </button>
-        }
-      </div>
-    }
-
     {error &&
       <p className="error">
         Une erreur est survenue : {error}. Veuillez réessayer.

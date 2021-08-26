@@ -1,0 +1,13 @@
+@import "./../../../styles/mixins.scss";
+
+.soundcloud-controls {
+  button {
+    cursor: pointer;
+
+    // we use invisible DOM element here instead of adding/removing it from the
+    // DOM because it's more convenient to use with flex layouts.
+    &.is-masked {
+      visibility: hidden;
+    }
+  }
+}

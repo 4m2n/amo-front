@@ -12,6 +12,7 @@ const Pro = () =>
         title="Télécharger la fiche technique"
         href={technicalFile}
         target="_blank"
+        rel="noreferrer"
       >
         <p>
           <span className="im">p</span>
@@ -22,6 +23,7 @@ const Pro = () =>
         title="Télécharger la brochure"
         href={marketingFile}
         target="_blank"
+        rel="noreferrer"
       >
         <p>
           <span className="im">p</span>

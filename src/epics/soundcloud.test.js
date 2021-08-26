@@ -2,20 +2,24 @@ import { createTestScheduler } from "./../test-utils"
 import { of } from "rxjs"
 import { TestScheduler } from "rxjs/testing"
 import {
+  ALL_SOUNDS_RECEIVED,
   CURRENT_SOUND_RECEIVED,
   ERROR,
   WAIT_FOR_SOUNDCLOUD_EVENT,
   error,
   initialize,
   initialized,
+  next,
   pause,
   paused,
   play,
   playing,
 } from "./../state/soundcloud/widget"
 import {
+  getAllSoundsEpic,
   getCurrentSoundEpic,
   initializeSoundcloudWidgetEpic,
+  nextTrackEpic,
   pauseEpic,
   playEpic,
   waitForSoundcloudToBePausedEpic,
@@ -214,7 +218,7 @@ describe("epics :: soundcloud :: waitForSoundcloudToBePausedEpic", () => {
 
 describe("epics :: soundcloud :: getCurrentSoundEpic", () => {
   it("dispatches the CURRENT_SOUND_RECEIVED action", done => {
-    const action$ = of(initialized())
+    const action$ = of(playing())
     const soundMock = {
       "title": "my title",
       "description": "my desc",
@@ -237,11 +241,11 @@ describe("epics :: soundcloud :: getCurrentSoundEpic", () => {
         expect(action.sound.title).toBe("my title")
         done()
       })
-      .catch(error => { fail(error); done() })
+      .catch(error => { console.error(error); done() })
   }, 1000)
 
   it("dispatches an ERROR action when an error occures", done => {
-    const action$ = of(initialized())
+    const action$ = of(playing())
     const deps = {
       soundcloudWidget: () => ({
         getInstance: () => ({
@@ -259,7 +263,51 @@ describe("epics :: soundcloud :: getCurrentSoundEpic", () => {
         )
         done()
       })
-      .catch(error => { fail(error); done() })
+      .catch(error => { console.error(error); done() })
+  }, 1000)
+})
+
+describe("epics :: soundcloud :: getAllSoundsEpic", () => {
+  it("dispatches the ALL_SOUNDS_RECEIVED action", done => {
+    const action$ = of(initialized())
+    const deps = {
+      soundcloudWidget: () => ({
+        getInstance: () => ({
+          getSounds: callback => callback([{}, {}, {}])
+        }),
+      }),
+    }
+
+    getAllSoundsEpic(action$, null, deps)
+      .toPromise(Promise)
+      .then(action => {
+        expect(action.type).toBe(ALL_SOUNDS_RECEIVED)
+        expect(action.sounds).toHaveLength(3)
+        done()
+      })
+      .catch(error => { console.error(error); done() })
+  }, 1000)
+
+  it("dispatches an ERROR action when an error occures", done => {
+    const action$ = of(initialized())
+    const deps = {
+      soundcloudWidget: () => ({
+        getInstance: () => ({
+          noop: () => null,
+        }),
+      }),
+    }
+
+    getAllSoundsEpic(action$, null, deps)
+      .toPromise(Promise)
+      .then(action => {
+        expect(action.type).toBe(ERROR)
+        expect(action.message).toBe(
+          "TypeError: widget.getSounds is not a function"
+        )
+        done()
+      })
+      .catch(error => { console.error(error); done() })
   }, 1000)
 })
 
@@ -280,7 +328,7 @@ describe("epics :: soundcloud :: playEpic", () => {
         expect(action.type).toBe(WAIT_FOR_SOUNDCLOUD_EVENT)
         done()
       })
-      .catch(error => { fail(error); done() })
+      .catch(error => { console.error(error); done() })
   }, 1000)
 
   it("dispatches an ERROR action when an error occures", done => {
@@ -302,7 +350,7 @@ describe("epics :: soundcloud :: playEpic", () => {
         )
         done()
       })
-      .catch(error => { fail(error); done() })
+      .catch(error => { console.error(error); done() })
   }, 1000)
 })
 
@@ -323,7 +371,7 @@ describe("epics :: soundcloud :: pauseEpic", () => {
         expect(action.type).toBe(WAIT_FOR_SOUNDCLOUD_EVENT)
         done()
       })
-      .catch(error => { fail(error); done() })
+      .catch(error => { console.error(error); done() })
   }, 1000)
 
   it("dispatches an ERROR action when an error occures", done => {
@@ -345,6 +393,56 @@ describe("epics :: soundcloud :: pauseEpic", () => {
         )
         done()
       })
-      .catch(error => { fail(error); done() })
+      .catch(error => { console.error(error); done() })
+  }, 1000)
+})
+
+describe("epics :: soundcloud :: nextTrackEpic", () => {
+  it("dispatches the WAIT_FOR_SOUNDCLOUD_EVENT_ACTION", done => {
+    let nextCall = []
+    let seekToCall = []
+    const action$ = of(next(26))
+    const deps = {
+      soundcloudWidget: () => ({
+        getInstance: () => ({
+          skip: id => nextCall.push(id),
+          seekTo: time => seekToCall.push(time)
+        }),
+      }),
+    }
+
+    nextTrackEpic(action$, null, deps)
+      .toPromise(Promise)
+      .then(action => {
+        expect(action.type).toBe(WAIT_FOR_SOUNDCLOUD_EVENT)
+        expect(nextCall).toHaveLength(1)
+        expect(nextCall[0]).toBe(26)
+        expect(seekToCall).toHaveLength(1)
+        expect(seekToCall[0]).toBe(0)
+        done()
+      })
+      .catch(error => { console.error(error); done() })
+  }, 1000)
+
+  it("dispatches an ERROR action when an error occures", done => {
+    const action$ = of(next())
+    const deps = {
+      soundcloudWidget: () => ({
+        getInstance: () => ({
+          noop: () => null,
+        }),
+      }),
+    }
+
+    nextTrackEpic(action$, null, deps)
+      .toPromise(Promise)
+      .then(action => {
+        expect(action.type).toBe(ERROR)
+        expect(action.message).toBe(
+          "TypeError: widget.skip is not a function"
+        )
+        done()
+      })
+      .catch(error => { console.error(error); done() })
   }, 1000)
 })

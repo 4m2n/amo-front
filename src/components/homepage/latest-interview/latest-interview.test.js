@@ -11,22 +11,10 @@ describe("components :: homepage :: latest-interview", () => {
     createContainer,
     render,
     prop("container"),
-    container => container.querySelector("p"),
-    loader => expect(loader.textContent).toBe("Chargement en cours..."),
+    container => container.querySelectorAll(".loader"),
+    loader => expect(loader).toHaveLength(1),
   )({
     isReady: false,
-    interview: null,
-  }))
-
-  it("displays a message in case, after loading, there is no interview to display", () => pipe(
-    props => <LatestInterview {...props} />,
-    createContainer,
-    render,
-    prop("container"),
-    container => container.querySelector("p"),
-    noNews => expect(noNews.textContent).toBe("Pas de nouveautés en ce moment !"),
-  )({
-    isReady: true,
     interview: null,
   }))
 
