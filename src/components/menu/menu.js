@@ -59,7 +59,6 @@ const Menu = ({
           <MenuItem page="concerts" path={path} />
           <MenuItem page="ecouter" path={path} />
           <MenuItem page="pro" path={path} />
-          <MenuItem page="boutique" path={path} />
         </ul>
       </nav>
     </header>
