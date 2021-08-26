@@ -1,4 +1,4 @@
-FROM node:16-alpine3.11 as dev
+FROM node:16.7.0-alpine3.14 as dev
 
 RUN apk update && \
     apk upgrade && \

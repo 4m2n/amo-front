@@ -5,6 +5,6 @@ export const wrapRootElement = wrapWithProvider
 
 export const onRenderBody = ({ setPostBodyComponents }) => {
   setPostBodyComponents([
-    <script src="https://w.soundcloud.com/player/api.js" />,
+    <script key="sc-sdk" src="https://w.soundcloud.com/player/api.js" />,
   ])
 }
