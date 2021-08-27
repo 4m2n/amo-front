@@ -1,8 +1,7 @@
-import { getTrackByTitle } from "./index"
 import { pipe } from "ramda"
 import { render } from "@testing-library/react"
 import React from "react"
-import Lyrics from "./lyrics"
+import { getTrackByTitle, Lyrics } from "./lyrics"
 
 describe("components :: lyrics", () => {
   it("can extract a track by its title from  a markdown collection", () => pipe(

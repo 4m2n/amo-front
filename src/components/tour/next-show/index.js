@@ -8,14 +8,17 @@ import {
 } from "ramda"
 import View from "./next-show"
 
+// getNextShowFromGraphql :: GraphQLData -> Maybe Show
+export const getNextShowFromGraphql = pipe(
+  useStaticQuery,
+  data => data.markdownRemark.htmlAst,
+  createShowList,
+  head,
+)
+
 // NextShow :: () -> React.Component
 export default function NextShow() {
-  const data = useStaticQuery(query)
-
-  const nextShow = pipe(
-    createShowList,
-    head,
-  )(data.markdownRemark.htmlAst)
+  const nextShow = getNextShowFromGraphql(query)
 
   return (
     <View nextShow={nextShow} />
