@@ -3,11 +3,9 @@ id: biography
 title: Bonjour, moi c’est Amaury !
 ---
 
-AMO est le projet musical dans lequel je joue de la guitare et je chante mes
-compositions. Mes inspirations vont de *Chris Stapleton* à *Neil Young*, en
-passant par *Jakob Dylan* ou encore *Blind Faith*. J’adore la musique
-anglo-saxonne,j’ai grandi en écoutant *The Police*, *Dire Straits* et
-*The Doors*, mais j’ai quand même décidé de chanter en français.
+AMO est le projet dans lequel je joue de la guitare et je chante. Ma musique est inspirée 
+par des artistes anglo-saxons et également par des chanteurs français. Voici quelques noms
+: *Chris Stapleton, Neil Young, Blind Faith, Gabriel Yacoub, Gérard Manset.*
 
 J’ai commencé la guitare à 14 ans, en jouant du rock avec mon frère à la
 batterie. Ensemble nous avons monté des groupes et fait des concerts en
