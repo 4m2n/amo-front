@@ -27,10 +27,10 @@ export const Track = ({
 // Listen :: Props -> React.Component
 const Listen = ({
   currentSound = {},
-  hasLyrics = true,
   isPlaying = false,
   next = () => {},
   trackList = [],
+  lyrics = null,
 }) =>
   <section className="listen">
     <Widget
@@ -74,8 +74,11 @@ const Listen = ({
       </div>
 
       <div className="lyrics-wrapper">
-        {hasLyrics && trackList.length > 0
-          ? <Lyrics title={currentSound.title} />
+        {lyrics && trackList.length > 0
+          ? <Lyrics
+              title={currentSound.title}
+              data={lyrics}
+            />
           : <Loader />
         }
       </div>

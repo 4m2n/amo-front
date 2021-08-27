@@ -9,11 +9,9 @@ import "./layout.scss"
 const Layout = ({
   path,
   children,
-  title = "AMO - musique"
 }) =>
   <main>
     <Helmet>
-      <title>{title}</title>
       <link rel="icon" type="image/x-icon" href={icon} />
       <script
         key="beampipe"

@@ -46,37 +46,27 @@ describe("components :: listen :: track", () => {
 })
 
 describe("components :: listen", () => {
-  it("displays a loader when the tracklist contains zero tracks", async () => {
-    const { container } = render(
-      createContainer(<Listen trackList={[]} />)
-    )
+  it("displays a loader when the tracklist contains zero tracks", () => pipe(
+    props => <Listen {...props} />,
+    createContainer,
+    render,
+    ({ container }) => container.querySelectorAll(".tracklist .loader"),
+    loader => expect(loader).toHaveLength(1)
+  )({
+    trackList: []
+  }))
 
-    await waitFor(() => {
-      expect(
-        container.querySelectorAll(".tracklist .loader")
-      ).toHaveLength(
-        1,
-      )
-    })
-  })
-
-  it("displays a track list", async () => {
-    const tracks = [
+  it("displays a track list", () => pipe(
+    props => <Listen {...props} />,
+    createContainer,
+    render,
+    ({ container }) => container.querySelectorAll(".tracklist .tracks .track"),
+    tracks => expect(tracks).toHaveLength(3)
+  )({
+    trackList: [
       { title: "my-track" },
       { title: "another-track" },
       { title: "and-a-third-track" },
     ]
-
-    const { container } = render(
-      createContainer(<Listen trackList={tracks} hasLyrics={false} />)
-    )
-
-    await waitFor(() => {
-      expect(
-        container.querySelectorAll(".tracklist .tracks .track")
-      ).toHaveLength(
-        3,
-      )
-    })
-  })
+  }))
 })
