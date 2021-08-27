@@ -14,6 +14,14 @@ const Layout = ({
     <Helmet>
       <title>AMO - musique</title>
       <link rel="icon" type="image/x-icon" href={icon} />
+      <script
+        key="beampipe"
+        async
+        defer
+        src="https://beampipe.io/js/tracker.js"
+        data-beampipe-domain="amo-musique.fr"
+      >
+      </script>
     </Helmet>
     <Menu path={path} />
     <div className="content">
