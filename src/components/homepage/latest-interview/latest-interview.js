@@ -3,7 +3,7 @@ import Widget from "./../../soundcloud/widget"
 import Controls from "./../../soundcloud/controls"
 import Loader from "./../../loader"
 import {
-  toFrenchDate,
+  isoToFrenchDate,
 } from "./../../../utils"
 import "./latest-interview.scss"
 
@@ -27,7 +27,7 @@ const LatestInterview = ({
             </figcaption>
           </figure>
           <time>
-            {toFrenchDate(interview.created_at)}
+            {isoToFrenchDate(interview.created_at)}
           </time>
           <p className="description">
             {interview.description}

@@ -12,20 +12,38 @@ import {
   getLastChildren,
   getTdNodeText,
 } from "./../../parser/parser"
+import {
+  toFrenchDate,
+} from "./../../utils"
 import "./tour.scss"
 import MobileShow from "./mobile-show"
 import BookShowButton from "./book-show-button"
 
 const showAttributes = ["city", "address", "date", "price", "buy"]
 
+// formatShow :: Show -> Show
+export const formatShow = pipe(
+  show => [
+    show,
+    show.date.split("/"),
+  ],
+  ([show, [dd, mm, yyyy]]) => ({
+    ...show,
+    date: new Date(`${mm}/${dd}/${yyyy}`),
+  }),
+)
+
 // createShowList :: HtmlAst -> [Show]
 export const createShowList = pipe(
   getLastChildren,                                // from root to table node
   getLastChildren,                                // from table to tbody node
   getChildren,                                    // get tr elements as a list
-  map(o(reduce(getTdNodeText, []), getChildren)), // extract cell node as texts
-  map(zip(showAttributes)),                       // create pairs
-  map(fromPairs),                                 // create tour objects
+  map(pipe(
+    o(reduce(getTdNodeText, []), getChildren),    // extract cell node as texts
+    zip(showAttributes),
+    fromPairs,
+    formatShow,                                   // create tour objects
+  )),
 )
 
 // Tour :: Props -> React.Component
@@ -52,7 +70,7 @@ export const Tour = ({
         <tbody>
           {createShowList(htmlAst).map((show, idx) =>
             <tr key={`desktop-show-${idx}`}>
-              <td>{show.date}</td>
+              <td>{toFrenchDate(show.date)}</td>
               <td>{show.city}</td>
               <td>{show.address}</td>
               <td>

@@ -13,6 +13,7 @@ export const getNextShowFromGraphql = pipe(
   useStaticQuery,
   data => data.markdownRemark.htmlAst,
   createShowList,
+  a => console.warn(a) || a,
   head,
 )
 

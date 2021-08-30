@@ -45,11 +45,9 @@ section.homepage {
       font-weight: $font-light;
     }
 
-    .separator {
-      min-width: 15%;
-    }
-
     .next-show {
+      padding-left: 15%;
+
       h2 {
         font-weight: $font-bold;
       }
@@ -71,6 +69,7 @@ section.homepage {
       flex-direction: column;
 
       .next-show {
+        padding-left: 0;
         margin-top: $size-1;
       }
     }

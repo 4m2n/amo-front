@@ -8,11 +8,12 @@ import {
 
 // isUpcomingShow :: Show -> Boolean
 export const isUpcomingShow = pipe(
-  prop("date"),
-  split("/"),
-  ([ day, month, year ]) => `${month}/${day}/${year}`,
-  netxShowDate => new Date(netxShowDate),
-  netxShowDate => netxShowDate.getTime() > (new Date()).getTime(),
+  () => false,
+  // prop("date"),
+  // split("/"),
+  // ([ day, month, year ]) => `${month}/${day}/${year}`,
+  // netxShowDate => new Date(netxShowDate),
+  // netxShowDate => netxShowDate.getTime() > (new Date()).getTime(),
 )
 
 // NextShow :: Props -> React.Component
