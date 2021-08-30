@@ -45,6 +45,15 @@ describe("components :: tour :: createShowList", () => {
                       children: [
                         {
                           type: "text",
+                          value: "19H",
+                        },
+                      ]
+                    },
+                    {
+                      tagName: "td",
+                      children: [
+                        {
+                          type: "text",
                           value: "12/06/1990",
                         },
                       ]
@@ -81,6 +90,7 @@ describe("components :: tour :: createShowList", () => {
         address: "my-address",
         buy: "my-link",
         city: "my-city",
+        time: "19H",
         date: new Date("06/12/1990"),
         price: "my-price",
       }
