@@ -22,7 +22,7 @@ const Homepage = () =>
         width={768}
         height={257}
       /> */}
-      <img src={banner2} />
+      <img src={banner1} />
       <figcaption>
         <Contact showSocialNetworks={true} />
       </figcaption>
