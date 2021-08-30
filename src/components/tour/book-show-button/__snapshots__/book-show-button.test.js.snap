@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components :: tour :: book-show-button renders a "free" label when no price or book link exists 1`] = `
-<p>
+<p
+  className="price"
+>
   Entrée gratuite
 </p>
 `;
@@ -29,7 +31,15 @@ exports[`components :: tour :: book-show-button renders a reservation link with 
 `;
 
 exports[`components :: tour :: book-show-button renders an "on site booking button" when no book link exists, but there is a price 1`] = `
-<p>
+<p
+  className="price"
+>
   Vente sur place (35€)
+</p>
+`;
+
+exports[`components :: tour :: book-show-button renders an hyphen is the show is passed 1`] = `
+<p>
+  -
 </p>
 `;

@@ -1,10 +1,12 @@
 import React from "react"
 import { useStaticQuery } from "gatsby"
 import { query } from "./../index"
-import { createShowList } from "./../tour"
+import { createOrderedShowList } from "./../tour"
 import {
   head,
   pipe,
+  filter,
+  prop,
 } from "ramda"
 import View from "./next-show"
 
@@ -12,7 +14,8 @@ import View from "./next-show"
 export const getNextShowFromGraphql = pipe(
   useStaticQuery,
   data => data.markdownRemark.htmlAst,
-  createShowList,
+  createOrderedShowList,
+  filter(prop("isUpcoming")),
   head,
 )
 

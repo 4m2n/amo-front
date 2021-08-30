@@ -65,6 +65,7 @@ Each line is a show, each cell is an attribute of the show. Shows have the
 following attributes:
 - ville   :: String
 - lieu    :: String
+- time    :: String (the hour the show is expected to be played live)
 - date    :: String (date in french format DD/MM/AAAA)
 - prix    :: Integer
 - acheter :: String (http link to the online ticket, if any)

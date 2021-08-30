@@ -7,6 +7,7 @@ describe("components :: tour :: book-show-button", () => {
     const show = {
       price: "35",
       buy: "my-wonderfull-buy-link",
+      isUpcoming: true,
     }
     const component = renderer.create(
       <BookShowButton show={show}/>
@@ -19,6 +20,7 @@ describe("components :: tour :: book-show-button", () => {
     const show = {
       price: undefined,
       buy: "my-wonderfull-buy-link",
+      isUpcoming: true,
     }
     const component = renderer.create(
       <BookShowButton show={show}/>
@@ -31,6 +33,7 @@ describe("components :: tour :: book-show-button", () => {
     const show = {
       price: "35",
       buy: undefined,
+      isUpcoming: true,
     }
     const component = renderer.create(
       <BookShowButton show={show}/>
@@ -43,6 +46,18 @@ describe("components :: tour :: book-show-button", () => {
     const show = {
       price: undefined,
       buy: undefined,
+      isUpcoming: true,
+    }
+    const component = renderer.create(
+      <BookShowButton show={show}/>
+    )
+
+    expect(component.toJSON()).toMatchSnapshot()
+  })
+
+  it("renders an hyphen is the show is passed", () => {
+    const show = {
+      isUpcoming: false,
     }
     const component = renderer.create(
       <BookShowButton show={show}/>

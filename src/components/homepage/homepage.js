@@ -29,7 +29,6 @@ const Homepage = () =>
 
     <section className="newscast container">
       <LatestInterview />
-      <div className="separator is-hidden-mobile"></div>
       <NextShow />
     </section>
 

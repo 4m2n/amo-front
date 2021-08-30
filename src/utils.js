@@ -34,10 +34,23 @@ export const findIndexByTitle = uncurryN(2, title => pipe(
 // getCurrentYear :: () -> Number
 export const getCurrentYear = () => (new Date()).getFullYear()
 
-// toDateString :: String -> String
-export const toFrenchDate = pipe(
+// toFrenchDate :: (Date, Object) -> String
+export const toFrenchDate = (date, options) => date.toLocaleDateString(
+  "fr-FR",
+  options
+    ? options
+    : {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }
+  ,
+)
+
+// isoToFrenchDate :: String -> String
+export const isoToFrenchDate = pipe(
   isoDate => new Date(isoDate),
-  date => date.toLocaleDateString("fr-FR"),
+  toFrenchDate,
 )
 
 // File utils //////////////////////////////////////////////////////////////////
