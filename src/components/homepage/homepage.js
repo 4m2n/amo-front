@@ -6,12 +6,14 @@ import Image from "./../image"
 import LatestInterview from "./latest-interview"
 import NextShow from "./../tour/next-show"
 import "./homepage.scss"
+import banner1 from "./../../assets/images/banner-1.jpg"
+import banner2 from "./../../assets/images/banner-2.jpg"
 
 // Homepage :: () -> React.Component
 const Homepage = () =>
   <section className="homepage">
     <figure className="banner">
-      <Image
+      {/* <Image
         id="homepage-banner"
         filename="AMO_bkg"
         alt="mout"
@@ -19,7 +21,8 @@ const Homepage = () =>
         formats={["webp", "jpg"]}
         width={768}
         height={257}
-      />
+      /> */}
+      <img src={banner1} />
       <figcaption>
         <Contact showSocialNetworks={true} />
       </figcaption>
