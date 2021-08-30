@@ -1,10 +1,11 @@
 import React from "react"
 import { useStaticQuery } from "gatsby"
 import { query } from "./../index"
-import { createShowList } from "./../tour"
+import { createOrderedShowList } from "./../tour"
 import {
-  head,
+  last,
   pipe,
+  filter,
 } from "ramda"
 import View from "./next-show"
 
@@ -12,9 +13,9 @@ import View from "./next-show"
 export const getNextShowFromGraphql = pipe(
   useStaticQuery,
   data => data.markdownRemark.htmlAst,
-  createShowList,
-  a => console.warn(a) || a,
-  head,
+  createOrderedShowList,
+  filter(show => show.date > new Date()),
+  last, // only keep last show of the list : its the closest to the current date
 )
 
 // NextShow :: () -> React.Component

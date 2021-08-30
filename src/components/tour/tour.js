@@ -6,6 +6,9 @@ import {
   pipe,
   reduce,
   zip,
+  sortBy,
+  prop,
+  reverse,
 } from "ramda"
 import {
   getChildren,
@@ -33,6 +36,12 @@ export const formatShow = pipe(
   }),
 )
 
+// sortShowsByDateDesc :: [Show] -> [Show]
+export const sortShowsByDateDesc = pipe(
+  sortBy(prop("date")),
+  reverse,
+)
+
 // createShowList :: HtmlAst -> [Show]
 export const createShowList = pipe(
   getLastChildren,                                // from root to table node
@@ -42,8 +51,14 @@ export const createShowList = pipe(
     o(reduce(getTdNodeText, []), getChildren),    // extract cell node as texts
     zip(showAttributes),
     fromPairs,
-    formatShow,                                   // create tour objects
+    formatShow,                                   // create show objects
   )),
+)
+
+// createOrderedShowList :: HtmlAst -> [Show]
+export const createOrderedShowList = pipe(
+  createShowList,
+  sortShowsByDateDesc,
 )
 
 // Tour :: Props -> React.Component
@@ -68,7 +83,7 @@ export const Tour = ({
           </tr>
         </thead>
         <tbody>
-          {createShowList(htmlAst).map((show, idx) =>
+          {createOrderedShowList(htmlAst).map((show, idx) =>
             <tr key={`desktop-show-${idx}`}>
               <td>{toFrenchDate(show.date)}</td>
               <td>{show.city}</td>
