@@ -4,7 +4,7 @@ import Tour from "./../components/tour"
 import Seo from "./../components/seo"
 import { query } from "./../components/tour/index"
 import { getNextShowFromGraphql  } from "./../components/tour/next-show"
-import { isUpcomingShow } from "./../components/tour/next-show/next-show"
+import { toFrenchDate  } from "./../utils"
 
 // TourTemplate :: Props -> React.Component
 export default function TourTemplate({
@@ -17,8 +17,8 @@ export default function TourTemplate({
   const description = [
     "Ecouter la musique chez soi ou dans la rue c'est bien, mais rien de tel que",
     "le live pour ressentir pleinement la musique !",
-    isUpcomingShow(nextShow)
-      ? `Prochain concert le ${nextShow.date} : ${nextShow.address}.`
+    nextShow
+      ? `Prochain concert le ${toFrenchDate(nextShow.date)} à ${nextShow.time} : ${nextShow.address}.`
       : ""
     ,
   ].join(" ")

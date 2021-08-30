@@ -36,7 +36,7 @@ exports[`components :: homepage :: latest-interview displays the interview conte
     </figcaption>
   </figure>
   <time>
-    05/10/2011
+    5 octobre 2011
   </time>
   <p
     className="description"
