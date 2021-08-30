@@ -13,6 +13,7 @@ import banner2 from "./../../assets/images/banner-2.jpg"
 const Homepage = () =>
   <section className="homepage">
     <figure className="banner">
+      {/* test */}
       {/* <Image
         id="homepage-banner"
         filename="AMO_bkg"
