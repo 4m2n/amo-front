@@ -34,8 +34,14 @@ describe("date utils", () =>  {
   )(utils.getCurrentYear()))
 
   it("formats a date in french", () => pipe(
+    date => new Date(date),
     utils.toFrenchDate,
-    result => expect(result).toBe("12/06/1990"),
+    result => expect(result).toBe("12 juin 1990"),
+  )("1990-06-12T00:05:32.000Z"))
+
+  it("formats an iso date in french", () => pipe(
+    utils.isoToFrenchDate,
+    result => expect(result).toBe("12 juin 1990"),
   )("1990-06-12T00:05:32.000Z"))
 })
 
