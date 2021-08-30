@@ -79,7 +79,7 @@ export const Tour = ({
             <th>Date</th>
             <th>Heure</th>
             <th>Ville</th>
-            <th>Salle</th>
+            <th>Adresse</th>
             <th>Prix</th>
           </tr>
         </thead>

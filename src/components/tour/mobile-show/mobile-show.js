@@ -11,7 +11,6 @@ const MobileShow = ({
     <h2>
       {show.city}
       &nbsp;- {toFrenchDate(show.date)} {show.time && `à ${show.time}`}
-
     </h2>
     <p>{show.address}</p>
     <BookShowButton show={show} />
