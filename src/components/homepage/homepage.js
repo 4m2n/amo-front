@@ -18,7 +18,7 @@ const Homepage = () =>
         sizes={[768, 1024, 1216, 1408]}
         formats={["webp", "jpg"]}
         width={768}
-        height={257}
+        height={155}
       />
       <figcaption>
         <Contact showSocialNetworks={true} />
