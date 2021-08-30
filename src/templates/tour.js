@@ -18,7 +18,7 @@ export default function TourTemplate({
     "Ecouter la musique chez soi ou dans la rue c'est bien, mais rien de tel que",
     "le live pour ressentir pleinement la musique !",
     nextShow
-      ? `Prochain concert le ${toFrenchDate(nextShow.date)} : ${nextShow.address}.`
+      ? `Prochain concert le ${toFrenchDate(nextShow.date)} à ${nextShow.time} : ${nextShow.address}.`
       : ""
     ,
   ].join(" ")

@@ -2,6 +2,7 @@
 @type Show :: {
   city    :: String
   address :: String
+  time    :: String
   date    :: String
   price   :: Number
   buy     :: String

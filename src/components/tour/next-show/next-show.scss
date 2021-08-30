@@ -1,0 +1,28 @@
+@import "./../../../styles/variables.scss";
+
+.next-show {
+  aside.date-and-time {
+    float: left;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    background-color: $color-dark-blue;
+    margin-right: $size-5;
+
+    p {
+      color: $color-white;
+
+      &.day {
+        line-height: 1;
+        font-size: $size-3;
+        font-weight: $font-bold;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  h2 {
+    font-weight: $font-bold;
+    margin-bottom: $size-5;
+  }
+}

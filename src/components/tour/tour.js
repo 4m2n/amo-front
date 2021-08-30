@@ -22,7 +22,7 @@ import "./tour.scss"
 import MobileShow from "./mobile-show"
 import BookShowButton from "./book-show-button"
 
-const showAttributes = ["city", "address", "date", "price", "buy"]
+const showAttributes = ["city", "address", "time", "date", "price", "buy"]
 
 // formatShow :: Show -> Show
 export const formatShow = pipe(
@@ -77,6 +77,7 @@ export const Tour = ({
         <thead>
           <tr>
             <th>Date</th>
+            <th>Heure</th>
             <th>Ville</th>
             <th>Salle</th>
             <th>Prix</th>
@@ -86,6 +87,7 @@ export const Tour = ({
           {createOrderedShowList(htmlAst).map((show, idx) =>
             <tr key={`desktop-show-${idx}`}>
               <td>{toFrenchDate(show.date)}</td>
+              <td>{show.time}</td>
               <td>{show.city}</td>
               <td>{show.address}</td>
               <td>
