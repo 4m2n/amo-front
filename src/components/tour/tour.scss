@@ -13,7 +13,13 @@ section.tour {
     background-color: $color-white;
     width: 100%;
 
+    &:last-of-type {
+      margin-bottom: $size-1;
+    }
+
     tr {
+      width: 100%;
+
       &:not(:last-child) {
         border-bottom: 1px solid lighten($color-grey, 35%);
       }
@@ -22,6 +28,21 @@ section.tour {
         vertical-align: top;
         line-height: 1.5;
         padding: $size-6;
+
+        // date & price
+        &:nth-child(1), &:nth-child(5) {
+          width: 20%;
+        }
+
+        // time & location
+        &:nth-child(2), &:nth-child(3) {
+          width: 10%;
+        }
+
+        // address
+        &:nth-child(4) {
+          width: 40%;
+        }
 
         a.btn-teal {
           margin-top: 0;
