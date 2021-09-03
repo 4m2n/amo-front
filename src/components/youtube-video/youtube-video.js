@@ -15,4 +15,5 @@ const YoutubeVideo = ({
     >
     </iframe>
   </div>
-export default YoutubeVideo
+
+export default YoutubeVideo;
