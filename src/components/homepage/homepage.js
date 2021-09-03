@@ -1,10 +1,11 @@
-import React from "react"
 import Biography from "./../biography"
 import Contact from "./../contact/contact"
 import ExtendedPlay from "./extended-play"
 import Image from "./../image"
 import LatestInterview from "./latest-interview"
 import NextShow from "./../tour/next-show"
+import React from "react"
+import YoutubeVideo from "./../youtube-video"
 import "./homepage.scss"
 
 // Homepage :: () -> React.Component
@@ -26,6 +27,14 @@ const Homepage = () =>
     </figure>
 
     <Biography />
+
+    <section className="latest-clip">
+      <div className="container">
+        <YoutubeVideo
+          src="https://www.youtube.com/embed/us9VMkiWV1k"
+        />
+      </div>
+    </section>
 
     <section className="newscast container">
       <LatestInterview />
