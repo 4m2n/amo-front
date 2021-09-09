@@ -139,17 +139,14 @@ describe("redux utils", () =>  {
 describe("observable utils", () =>  {
   it("creates an observable that emits from a soundcloud widget binded event", done => {
     const WidgetMock = function () {
-      this.bindedEvents = {}
-      let that = this
+      const bindedEvents = {
+        play: () => null,
+      };
 
-      this.bind = function (event, callback) {
-        that.bindedEvents[event] = callback
-      }
+      this.bind = (event, callback) => bindedEvents[event] = callback;
 
-      this.play = function () {
-        that.bindedEvents["play"]()
-      }
-    }
+      this.play = () => bindedEvents["play"]();
+    };
 
     const wm = new WidgetMock()
 
