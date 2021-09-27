@@ -30,8 +30,8 @@ describe("miscellaneous utils", () => {
 
 describe("date utils", () =>  {
   it("determines the current year", () => pipe(
-    result => expect(result).toBe(2021),
-  )(utils.getCurrentYear()))
+    result => expect(result).toBe(1992),
+  )(utils.getYear(new Date("1992-09-27"))))
 
   it("formats a date in french", () => pipe(
     date => new Date(date),

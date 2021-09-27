@@ -1,12 +1,12 @@
 import React from "react"
-import { getCurrentYear } from "./../../utils"
+import { getYear } from "./../../utils"
 import "./footer.scss"
 
 // Footer :: Props -> React.Component
 const Footer = () =>
   <footer className="container">
     <p>
-      © {getCurrentYear()} Amaury Langlois
+      © {getYear(new Date())} Amaury Langlois
       <span className="is-hidden-mobile">/</span>
     </p>
     <p>
