@@ -6,6 +6,7 @@ import Lyrics from "./../lyrics"
 import Loader from "./../loader"
 import "./listen.scss"
 
+// On charge la playlist soundcloud dans ce fichier
 // Track :: Props -> React.Component
 export const Track = ({
   idx = 0,
