@@ -15,7 +15,7 @@ const LatestInterview = ({
     <h1 className="title">Dernières actualités</h1>
     <Widget
       id="sc-interview"
-      url="https%3A//api.soundcloud.com/playlists/1290749911"
+      url="https%3A//api.soundcloud.com/playlists/1374236014"
     />
 
     {interview !== null
