@@ -4,7 +4,7 @@ title: Lourd Bagage
 ---
 
 *Six ans aujourd’hui*
-*Toute cassé dans ton lit*
+*Toute cassée dans ton lit*
 *Les os en mille morceaux*
 *Le plâtre comme second peau*
 
