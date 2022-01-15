@@ -31,7 +31,7 @@ const Homepage = () =>
     <section className="latest-clip">
       <div className="container">
         <YoutubeVideo
-          src="https://www.youtube.com/embed/us9VMkiWV1k"
+          src="https://www.youtube.com/watch?v=dBkR7Jr-zCE"
         />
       </div>
     </section>
